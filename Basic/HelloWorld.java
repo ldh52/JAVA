@@ -5,14 +5,14 @@ public class HelloWorld
 {
 	public static void main(String[] args) 
 	{
-//		System.out.println("Hello");
-//		incDecTest();
-//		printGugu();
-//		printGugu7();
-//		inputDanPrint();
-//		notEquals();
-//		logicalOpTest();
-//		logicallogin();
+		System.out.println("Hello");
+		incDecTest();
+		printGugu();
+		printGugu7();
+		inputDanPrint();
+		notEquals();
+		logicalOpTest();
+		logicallogin();
 		bitShifOp();
 	}
 	
@@ -30,8 +30,8 @@ public class HelloWorld
 	{
 		int dan = 5;
 		for(int i = 1; i < 10; i++) {
-			int result = dan * i;
-			System.out.printf("%d * %d = %d %n", dan, i, result);
+		int result = dan * i;
+		System.out.printf("%d * %d = %d %n", dan, i, result);
 		}
 	}
 	
@@ -73,9 +73,9 @@ public class HelloWorld
 	{
 		Scanner kbd = new Scanner(System.in);
 		System.out.print("수를 입력하세요: ");
-        int n = kbd.nextInt();
-        String msg = String.format("%d는(은) %s입니다", n, n % 2 == 0 ? "짝수" : "홀수");
-        System.out.println(msg);
+	        int n = kbd.nextInt();
+	        String msg = String.format("%d는(은) %s입니다", n, n % 2 == 0 ? "짝수" : "홀수");
+	        System.out.println(msg);
 	}
 	
 	private static void logicalAnd()
