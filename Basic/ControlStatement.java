@@ -37,13 +37,13 @@ public class ControlStatement {
 		Scanner kbd = new Scanner(System.in);
 		System.out.print("아이디: ");
 		String input = kbd.nextLine().trim();
-		String[] arr2 = input.split("\\s+"); //정규표현식을 받는다
+		String[] arr2 = input.split("\\s+"); // 정규표현식을 받는다
 		String result = login2(arr2[0], arr2[1]) ? "로그인 성공":"로그인 실패";
 		System.out.println(result);
 	}
 	
 	// 메소드(Method : 코드의 집합에 이름을 붙인 것)
-	private static void hello() { //function:기능,함수 static이 붙은건 클래스메서드
+	private static void hello() { // function:기능, 함수 static이 붙은건 클래스메서드
 		System.out.println("Hello");
 	}
 	
