@@ -5,14 +5,14 @@ public class HelloWorld
 {
 	public static void main(String[] args) 
 	{
-		System.out.println("Hello");
-		incDecTest();
-		printGugu();
-		printGugu7();
-		inputDanPrint();
-		notEquals();
-		logicalOpTest();
-		logicallogin();
+//		System.out.println("Hello");
+//		incDecTest();
+//		printGugu();
+//		printGugu7();
+//		inputDanPrint();
+//		notEquals();
+//		logicalOpTest();
+//		logicallogin();
 		bitShifOp();
 	}
 	
@@ -71,10 +71,18 @@ public class HelloWorld
 	
 	private static void OddOrEven()
 	{
+		Scanner kbd = new Scanner(System.in);
+		//내가한거
 		System.out.print("수를 입력하세요: ");
-     	        int n = kbd.nextInt();
-                String msg = String.format("%d는(은) %s입니다", n, n % 2 == 0 ? "짝수" : "홀수");
-                System.out.println(msg);
+        int su = kbd.nextInt();
+        String a = su % 2 == 0 ? "짝수" : "홀수";
+        System.out.println(su+ "는 " + a + "입니다.");
+        
+        //강사님이한거
+		System.out.print("수를 입력하세요: ");
+        int n = kbd.nextInt();
+        String msg = String.format("%d는(은) %s입니다", n, n % 2 == 0 ? "짝수" : "홀수");
+        System.out.println(msg);
 	}
 	
 	private static void logicalAnd()
