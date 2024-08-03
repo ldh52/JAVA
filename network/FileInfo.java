@@ -7,8 +7,8 @@ import java.util.Date;
 
 import javax.xml.crypto.Data;
 
-public class FileInfo implements Serializable {
-
+public class FileInfo implements Serializable 
+{
     int number ;
     String fileName;
     byte[] fileData;
@@ -37,7 +37,6 @@ public class FileInfo implements Serializable {
     }
 
     public void FileIO(){};
-
 
     public int getNumber() {
         return number;
