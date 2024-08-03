@@ -9,8 +9,7 @@ public class UserIO
 	static Scanner kbd = new Scanner(System.in);
 	static String menu = "추가(a), 목록(s), 검색(f), 수정(u), 삭제(d), 종료(x):";
 
-	public static String showmenu() 
-	{
+	public static String showmenu() {
 		System.out.println();
 		System.out.println(menu);
 		String m= kbd.nextLine().trim();
@@ -49,8 +48,7 @@ public class UserIO
 		System.out.println();
 		System.out.println("\t\t** 게시글 목록 **");
 		Collections.sort(list);
-		for(int i=0; i<list.size();i++)
-		{
+		for(int i=0; i<list.size();i++) {
 			System.out.println(list.get(i));
 		}
 	}
@@ -63,11 +61,9 @@ public class UserIO
 		PetVO pet = FileIO.findByNo(no);
 		
 		System.out.println("\t\t ** 검색결과 **");
-		if(pet != null)
-		{
+		if(pet != null) {
 			System.out.println(pet);
-		} else
-		{
+		} else {
 			System.out.println("검색된 글이 없습니다.");
 		}
 	}
@@ -78,8 +74,7 @@ public class UserIO
 		String species = kbd.nextLine();
 		
 		PetVO found = FileIO.findBySpecies(species);
-		if(found == null)
-		{
+		if(found == null) {
 			System.out.println("제목으로 검색된 품종이 없습니다.");
 			return;
 		}
@@ -89,10 +84,10 @@ public class UserIO
 		String newSpecies = kbd.nextLine();
 		
 		System.out.print("무게:");
-		Float newWeight = kbd.nextFloat();		kbd.nextLine();
+		Float newWeight = kbd.nextFloat();	kbd.nextLine();
 		
 		System.out.print("가격:");
-		int newPrice = kbd.nextInt();			kbd.nextLine();
+		int newPrice = kbd.nextInt();		kbd.nextLine();
 		
 		PetVO pet = new PetVO();
 		pet.setNo(found.getNo());
@@ -106,14 +101,13 @@ public class UserIO
 		else System.out.println("수정 실패");
 	}
 
-	/*
 	public static void delete() 
 	{
 		System.out.println("삭제할 글번호");
-		int no = kbd.nextInt();		kbd.nextLine();
+		int no = kbd.nextInt();			kbd.nextLine();
 		
 		boolean deleted = FileIO.delete(no);
 		if(deleted) System.out.println("삭제 성공");
 		else System.out.println("삭제 실패");
-	}*/
+	}
 }
