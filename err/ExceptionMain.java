@@ -13,8 +13,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-
 public class ExceptionMain 
 {
 	static Scanner kbd = new Scanner(System.in);
@@ -58,8 +56,7 @@ public class ExceptionMain
 		try {
 			c = a/b;
 			System.out.println("나눈 결과 = " + c);
-		}
-		catch(ArithmeticException ae) {
+		} catch(ArithmeticException ae) {
 			// 이 부분 실행
 			// System.err.println(ae.getMessage());
 			System.err.println("0으로 수를 나눌 수는 없습니다");
