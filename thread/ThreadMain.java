@@ -1,8 +1,9 @@
 package thread;
 
-public class ThreadMain {
-
-	public static void main(String[] args) {
+public class ThreadMain 
+{
+	public static void main(String[] args) 
+	{
 		/* Thread: 가상의 CPU(VCPU)
 		 * MultiTasking:
 		 * Chat : 이용자가 메시지를 네트워크로 출력, 다른컴에서 메시지를 입력하는 것
@@ -12,10 +13,10 @@ public class ThreadMain {
 		 * Thread가 실행할 수 있는 코드는 Runnable 인터페이스 구현체이어야 한다
 		 * Thread에게 전달될 코드는 Runnable이어야 한다
 		 */
-//		threadTest01();
-//		threadTest02();
-//		Thread mt = Thread.currentThread();
-//		String tname = mt.getName(); //main
+		threadTest01();
+		threadTest02();
+		Thread mt = Thread.currentThread();
+		String tname = mt.getName(); //main
 		
 		Counter cnt = new Counter();
 		Producer prod = new Producer(cnt);
@@ -24,7 +25,7 @@ public class ThreadMain {
 		cons.start();
 		
 		System.out.println("main 프로그램 종료");
-	} //end of main()
+	} // end of main()
 	
 	private static void threadTest02() {
 		NumThread nt = new NumThread("숫자 쓰레드");
@@ -40,5 +41,4 @@ public class ThreadMain {
 		Thread t2 = new Thread(new Run2(), "날짜 쓰레드");
 		t2.start();
 	}
-
 }
