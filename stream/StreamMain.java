@@ -29,16 +29,16 @@ public class StreamMain
 	
 	public static void main(String[] args) 
 	{
-//		textInput();
-//		textInput2();
-//		textInput3();
-//		textInput4();
-//		textInput5();
-//		memList();
-//		login();
-//		textWrite();
-//		addUser();
-//		textUpdate();
+		textInput();
+		textInput2();
+		textInput3();
+		textInput4();
+		textInput5();
+		memList();
+		login();
+		textWrite();
+		addUser();
+		textUpdate();
 		textDelete();
 	}
 	
@@ -47,6 +47,7 @@ public class StreamMain
 	 * 텍스트 파일(File)을 읽을(Reader) 때는 FileReader --> data
 	 * 화면에 표시 : System.out.println(data);
 	 */
+	
 	// 한 글자 읽어오기 : FileReader
 	private static void textInput()
 	{
@@ -145,8 +146,7 @@ public class StreamMain
 	private static void memList()
 	{
 		List<Member> list = listFromFile();
-		for(int i=0;i<list.size();i++)
-		{
+		for(int i=0;i<list.size();i++) {
 			System.out.println(list.get(i));
 		}
 	}
@@ -158,8 +158,7 @@ public class StreamMain
 			BufferedReader br = new BufferedReader(new FileReader(f));
 			String line = null;
 			List<Member> list = new ArrayList<>();
-			while((line=br.readLine())!=null)
-			{
+			while((line=br.readLine())!=null) {
 				list.add(new Member(line));
 			}
 			br.close();
@@ -199,8 +198,7 @@ public class StreamMain
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(fpath));
 			String line = null;
-			while((line=br.readLine())!=null)
-			{
+			while((line=br.readLine())!=null) {
 				list.add(new User(line));
 			}
 			br.close();
@@ -213,7 +211,7 @@ public class StreamMain
 	
 	// 메모리에 문자열 --> 파일에 기록 (메모리에서 디스크로 데이터 이동)
 	// 문자열을 파일(File)에 기록(Write) : FileWriter (노드스트림)
-	//System.out.println();  // PrintStream.println()
+	// System.out.println();  // PrintStream.println()
 	private static void textWrite()
 	{
 		try {
@@ -247,8 +245,7 @@ public class StreamMain
 		System.out.println(added ? "추가 성공":"실패");
 		
 		List<User> list = getUsers();
-		for(int i=0;i<list.size();i++)
-		{
+		for(int i=0;i<list.size();i++) {
 			System.out.println(list.get(i));
 		}
 	}
@@ -268,7 +265,7 @@ public class StreamMain
 		return false;
 	}
 	
-	//텍스트를 로드 > 메모리에서 수정 > 메모리에서 수정된 내용을 기존 파일에 덮어쓰기 한다
+	// 텍스트를 로드 > 메모리에서 수정 > 메모리에서 수정된 내용을 기존 파일에 덮어쓰기 한다
 	private static void textUpdate()
 	{
 		File f = new File("C:/test/data/members.txt");
@@ -280,13 +277,12 @@ public class StreamMain
 			BufferedReader br = new BufferedReader(new FileReader(f));
 			String line = null;
 			List<Member> list = new ArrayList<>();
-			while((line=br.readLine())!=null)
-			{
+			while((line=br.readLine())!=null) {
 				list.add(new Member(line));
 			}
 			br.close();
 			
-			//13번 회원의 전화번호를 010-3333-7777
+			// 13번 회원의 전화번호를 010-3333-7777
 			Member key = new Member(13);
 			if(list.contains(key)) {
 				list.get(list.indexOf(key)).setPhone("010-3333-7777");
@@ -309,7 +305,7 @@ public class StreamMain
 	
 	private static void textDelete()
 	{
-		//텍스트를 로드 > 메모리에서 삭제 > 메모리에서 수정된 내용을 기존 파일에 덮어쓰기 한다
+		// 텍스트를 로드 > 메모리에서 삭제 > 메모리에서 수정된 내용을 기존 파일에 덮어쓰기 한다
 		File f = new File("C:/test/data/members.txt");
 		if(!f.exists()) {
 			System.err.println("지정된 파일이 없습니다");
@@ -319,21 +315,19 @@ public class StreamMain
 			BufferedReader br = new BufferedReader(new FileReader(f));
 			String line = null;
 			List<Member> list = new ArrayList<>();
-			while((line=br.readLine())!=null)
-			{
+			while((line=br.readLine())!=null) {
 				list.add(new Member(line));
 			}
 			br.close();
 			
-			//14번 회원정보 삭제
+			// 14번 회원정보 삭제
 			Member key = new Member(14);
 			if(list.contains(key)) {
 				list.remove(key);
 			}
-			//메모리에서 변경된 데이터를 파일에 덮어쓰기한다
+			// 메모리에서 변경된 데이터를 파일에 덮어쓰기한다
 			PrintWriter out = new PrintWriter(new FileWriter(f));  //덮어쓰기
-			for(int i=0;i<list.size();i++)
-			{
+			for(int i=0;i<list.size();i++) {
 				Member m = list.get(i);
 				out.printf("%d|%s|%s|%s%n", 
 					m.getNo(), m.getName(), m.getPhone(), m.getEmail());
