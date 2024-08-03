@@ -14,12 +14,11 @@ public class Employee
 	private java.util.Date hiredate;
 	
 	public Employee() {}
-	public Employee(int empno)
-	{
+	public Employee(int empno){
 		setEmpno(empno);
 	}
-	public Employee(int empno, String ename, int sal, int deptno, String sHiredate)
-	{
+	
+	public Employee(int empno, String ename, int sal, int deptno, String sHiredate)	{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		setEmpno(empno);
 		setEname(ename);
@@ -32,8 +31,7 @@ public class Employee
 		}
 	}
 	
-	public Employee(String[] info) 
-	{
+	public Employee(String[] info) {
 		int empno = Integer.parseInt(info[0]);
 		String ename = info[1];
 		int sal = Integer.parseInt(info[2]);
@@ -51,14 +49,25 @@ public class Employee
 		setDeptno(deptno);
 		setHiredate(hiredate);
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String sHiredate = sdf.format(hiredate);
 		return String.format("%d\t%s\t%d\t%d\t%s", empno,ename,sal,deptno,sHiredate);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Employee other = (Employee) obj;
+		return this.getEmpno()==other.getEmpno();
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.getEmpno());
+	}
+	
 	public int getEmpno() {
 		return empno;
 	}
@@ -89,17 +98,4 @@ public class Employee
 	public void setHiredate(java.util.Date hiredate) {
 		this.hiredate = hiredate;
 	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		Employee other = (Employee) obj;
-		return this.getEmpno()==other.getEmpno();
-	}
-	
-	@Override
-	public int hashCode() {
-		return Objects.hash(this.getEmpno());
-	}
-	
-	
 }
