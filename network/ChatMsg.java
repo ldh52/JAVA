@@ -16,14 +16,12 @@ public class ChatMsg implements Serializable
 	byte[] fdata;
 	
 	public ChatMsg() {}
-	public ChatMsg(boolean login, String uid, String pwd)
-	{
+	public ChatMsg(boolean login, String uid, String pwd) {
 		this.login = login;
 		this.uid = uid;
 		this.pwd = pwd;
 	}
-	public ChatMsg(String from, String to, String msg)
-	{
+	public ChatMsg(String from, String to, String msg) {
 		this.from = from;
 		this.to = to;
 		this.msg = msg;
