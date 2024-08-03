@@ -24,7 +24,6 @@ public class PDSClient
 
             out = socket.getOutputStream();
             oos = new ObjectOutputStream(out);
-
             in = socket.getInputStream();
             oin = new ObjectInputStream(in);
 
@@ -33,8 +32,7 @@ public class PDSClient
                 String m = kbd.nextLine().trim();
 
                 if (m.equals("a")) {
-                    
-                	PDSVO pds = input();
+                    PDSVO pds = input();
                     
                     PDSRequest req = new PDSRequest(CMD.UPLOAD);
                     req.setPds(pds);
@@ -60,7 +58,7 @@ public class PDSClient
                         System.out.println(fileInfo);
                     }
                 } 
-                else if(m.equals("i")) { //상세보기
+                else if(m.equals("i")) { // 상세보기
                 	System.out.println("목록번호:");
                 	int no = kbd.nextInt();
                 	kbd.nextLine();
@@ -129,7 +127,6 @@ public class PDSClient
                     break;
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -137,7 +134,8 @@ public class PDSClient
         }
     }
     
-    private static PDSVO input() {
+    private static PDSVO input() 
+    {
     	System.out.println("파일명:");
         String fname = kbd.nextLine().trim();
 
