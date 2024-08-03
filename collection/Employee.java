@@ -60,7 +60,7 @@ public class Employee
 	@Override
 	public boolean equals(Object obj) {
 		Employee other = (Employee) obj;
-		return this.getEmpno()==other.getEmpno();
+		return this.getEmpno() == other.getEmpno();
 	}
 	
 	@Override
