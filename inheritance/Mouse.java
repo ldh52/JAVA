@@ -3,8 +3,8 @@ package inheritance;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Mouse extends Item {
-	
+public class Mouse extends Item 
+{
 	String wireless;
 
 	public Mouse() {}
@@ -30,7 +30,5 @@ public class Mouse extends Item {
 
 	public void setWireless(String wireless) {
 		this.wireless = wireless;
-	}
-	
-	
+	}	
 }
