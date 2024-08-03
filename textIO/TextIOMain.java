@@ -18,11 +18,9 @@ public class TextIOMain
 	public static void main(String[] args)
 	{
 		boolean go = true;
-		while(go)
-		{
+		while(go) {
 			String m = UserIO.showMenu();
-			switch(m)
-			{
+			switch(m) {
 				case "x": go=false; 		break;
 				case "a": UserIO.add();		break;
 				case "s": UserIO.list();	break;
