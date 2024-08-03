@@ -8,10 +8,10 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class SerializeMain {
-
-	public static void main(String[] args) {
+public class SerializeMain 
+{
+	public static void main(String[] args) 
+	{
 		// 문서관리 공유 시스템
 		// 문서를 업로드하여 다른 이용자가 목록을 보고 골라서 파일을 다운로드할 수 있다
 		// 업로드, 다운로드, 검색, 수정, 삭제, 종료
@@ -19,31 +19,33 @@ public class SerializeMain {
 		// 한 문서에 포함되는 속성:번호, 제목, 파일명, 날짜, 작성자, 파일크기
 		// List<Document>
 		// 디렉토리에 포함된 파일의 리스트 추출하는 방법
-//		listForFiles();
-//		searchFile();
-//		listSerialization();
-//		deSerialization();
-//		updateList();
+		listForFiles();
+		searchFile();
+		listSerialization();
+		deSerialization();
+		updateList();
 		update02();
 		
 	} // end main
 	
-	private static void listForFiles() {
+	private static void listForFiles() 
+	{
 		String path = "C:/test";
 		File f = new File(path);
-//		String[] files = f.list();    // 파일명만 배열로
+		// String[] files = f.list();    // 파일명만 배열로
 		File[] files = f.listFiles(); // File 오브젝트배열
 		for(int i=0; i<files.length; i++) {
-//			System.out.println(files[i]);
+			// System.out.println(files[i]);
 			if(files[i].isDirectory()) {
 				System.out.println(files[i] + "\t\t->Dir");
-			}else {
+			} else {
 				System.out.println(files[i] + "\t\t->File");
 			}
 		}
 	}
 	
-	private static void searchFile() {
+	private static void searchFile() 
+	{
 		String key = "sample.txt";
 		String path = "C:/test";
 		
@@ -56,8 +58,9 @@ public class SerializeMain {
 		}
 	}
 	
-	private static void listSerialization() {
-//		List<String> names = List.of("강호동", "이수근", "정청래", "Smith", "Laura", "홍길동");
+	private static void listSerialization() 
+	{
+		// List<String> names = List.of("강호동", "이수근", "정청래", "Smith", "Laura", "홍길동");
 		String path = "C:/test/list_names.ser";
 		List<String> names = new ArrayList<String>();
 		names.add("강호동");
@@ -69,7 +72,6 @@ public class SerializeMain {
 		for(int i=0; i<names.size(); i++) {
 			System.out.println(names.get(i));
 		}
-		
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("C:/test/list_names.ser"));
 			oos.writeObject(names);
@@ -82,8 +84,9 @@ public class SerializeMain {
 		}
 	}
 	
-	private static boolean serialize(List<String> list) {
-//		List<String> names = List.of("강호동", "이수근", "정청래", "Smith", "Laura", "홍길동");
+	private static boolean serialize(List<String> list) 
+	{
+		// List<String> names = List.of("강호동", "이수근", "정청래", "Smith", "Laura", "홍길동");
 		
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("C:/test/list_names.ser"));
@@ -98,8 +101,8 @@ public class SerializeMain {
 		return false;
 	}
 	
-	private static boolean serialize1(List<Emp> list) {
-		
+	private static boolean serialize1(List<Emp> list) 
+	{
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("C:/test/list_names.ser"));
 			oos.writeObject(list);
@@ -113,7 +116,8 @@ public class SerializeMain {
 		return false;
 	}
 	
-	private static List<String> deSerialization() {
+	private static List<String> deSerialization() 
+	{
 		String path = "C:/test/list_names.ser";
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
@@ -131,7 +135,8 @@ public class SerializeMain {
 		return null;
 	}
 	
-	private static List<Emp> deSerialization1() {
+	private static List<Emp> deSerialization1() 
+	{
 		String path = "C:/test/list_names.ser";
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
@@ -149,7 +154,8 @@ public class SerializeMain {
 		return null;
 	}
 	
-	private static void updateList() {
+	private static void updateList() 
+	{
 		// Simth -> James 로 변경하여 파일에 저장하고 다시 역직렬화아여 변경된 내용 확인
 		List<String> list = deSerialization();
 		
@@ -166,7 +172,8 @@ public class SerializeMain {
 		deSerialization();
 	}
 
-	private static void update02() {
+	private static void update02() 
+	{
 		List<Emp> list = new ArrayList<>();
 		Emp e1 = new Emp(11, "smith", 20, 3020);
 		Emp e2 = new Emp(12, "james", 10, 3300);
@@ -180,7 +187,7 @@ public class SerializeMain {
 			System.out.println(list.get(i));
 		}
 		
-		//james의 급여(sal) 변경하기
+		// james의 급여(sal) 변경하기
 		Emp key = new Emp(12);
 		if(list.contains(key)) {
 			int idx = list.indexOf(key);
@@ -199,16 +206,15 @@ public class SerializeMain {
 		// emp_list.ser 파일에 직렬화해보세요
 		if(serialize1(list)) {
 			System.out.println("수정성공");
-		}else {
+		} else {
 			System.out.println("수정실패");				
 		}
 		deSerialization1();
-		
 	}
 
 }
-//File f = new File("C:/test/sample.jpg");
-//if(f.exists()) {
+/ /File f = new File("C:/test/sample.jpg");
+// if(f.exists()) {
 //	boolean deleted = f.delete();
 //	if(deleted) {
 //		System.out.println("파일 삭제 성공");
