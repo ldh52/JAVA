@@ -30,5 +30,4 @@ public class Monitor extends Item
 	public void setSize(float size) {
 		this.size = size;
 	}
-	
 }
