@@ -53,8 +53,7 @@ public class UserIO
 		List<BoardVO> list = DataIO.list();
 		System.out.println();
 		System.out.println("\t\t** 게시글 목록 **");
-		for(int i=0;i<list.size();i++)
-		{
+		for(int i=0;i<list.size();i++) {
 			System.out.println(list.get(i));
 		}
 	}
@@ -75,7 +74,8 @@ public class UserIO
 		}
 	}
 
-	public static void update() {
+	public static void update() 
+	{
 		System.out.print("검색할 글 제목:");
 		String title = kbd.nextLine();
 		
@@ -104,7 +104,7 @@ public class UserIO
 
 	public static void delete() {
 		System.out.print("삭제할 글 번호:");
-		int no = kbd.nextInt();     kbd.nextLine();
+		int no = kbd.nextInt();     		kbd.nextLine();
 		boolean deleted = DataIO.delete(no);
 		if(deleted) System.out.println("삭제 성공");
 		else System.err.println("삭제 실패");
