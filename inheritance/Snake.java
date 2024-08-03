@@ -21,13 +21,12 @@ public class Snake extends Pet
 	public Snake(String[] token) { 
 		super(Integer.parseInt(token[0]), token[1]);
 		String pattern = token[2];
-        float size = Float.parseFloat(token[3]);  
-        setPattern(pattern);
-        setSize(size);
+	        float size = Float.parseFloat(token[3]);  
+	        setPattern(pattern);
+	        setSize(size);
 	}
 	
 	public Snake(String string, int i, String string2, float f) {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getPattern() {
