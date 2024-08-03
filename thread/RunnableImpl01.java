@@ -1,7 +1,7 @@
 package thread;
 
-public class RunnableImpl01 implements Runnable {
-
+public class RunnableImpl01 implements Runnable 
+{
 	@Override
 	public void run() {
 		String it = Thread.currentThread().getName();
@@ -10,11 +10,9 @@ public class RunnableImpl01 implements Runnable {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		System.out.println(it + "Thread Dead");
 	}
-
 }
