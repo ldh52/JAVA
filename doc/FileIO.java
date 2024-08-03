@@ -70,8 +70,7 @@ public class FileIO
 	    File file = new File(savePath + fname);
 
 	    // 파일이 존재하는지 확인합니다.
-	    if (file.exists()) {
-	        // 파일을 삭제합니다.
+	    if (file.exists()) { // 파일을 삭제합니다.
 	        if (file.delete()) {
 	            System.out.println(file.getPath() + " 파일이 삭제되었습니다.");
 	            return true;
