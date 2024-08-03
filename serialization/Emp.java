@@ -9,9 +9,7 @@ public class Emp implements Serializable{
 	private String ename;
 	private int deptno;
 	private int sal;
-	
-	
-	
+
 	@Override
 	public String toString() {
 		return "Emp [empno=" + empno + ", ename=" + ename + ", deptno=" + deptno + ", sal=" + sal + "]";
@@ -64,6 +62,4 @@ public class Emp implements Serializable{
 	public void setSal(int sal) {
 		this.sal = sal;
 	}
-	
-	
 }
