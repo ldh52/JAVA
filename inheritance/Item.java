@@ -4,8 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Item extends Object {
-	
+public class Item extends Object 
+{
 	String name;
 	String made;
 	int price;
@@ -41,8 +41,6 @@ public class Item extends Object {
 		String sDate = sdf.format(pDate);
 		return String.format("%s\t%s\t%d\t%s", name, made, price, sDate);
 	}
-
-
 
 	public String getName() {
 		return name;
