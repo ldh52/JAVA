@@ -24,12 +24,11 @@ public class Array
 		barr[1] = b2;
 		barr[2] = b3;
 		
-		for(int i=0; i<barr.length; i++)
-		{
+		for(int i=0; i<barr.length; i++) {
 			System.out.printf("%d|%s|%s %n", 
-								barr[i].getNum(), 
-								barr[i].getTitle(), 
-								barr[i].getAuthor());
+							barr[i].getNum(), 
+							barr[i].getTitle(), 
+							barr[i].getAuthor());
 		}
 	}
 }
