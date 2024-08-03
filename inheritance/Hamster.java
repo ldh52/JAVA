@@ -1,6 +1,7 @@
 package inheritance;
 
-public class Hamster extends Pet {
+public class Hamster extends Pet 
+{
 	float size;
 
 	public Hamster() {}
@@ -32,5 +33,4 @@ public class Hamster extends Pet {
 	public void setSize(float size) {
 		this.size = size;
 	}
-	
 }
