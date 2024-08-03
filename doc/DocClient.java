@@ -22,9 +22,8 @@ public class DocClient
                 InputStream in = s.getInputStream();
                 ObjectInputStream oin = new ObjectInputStream(in);
                 Msg menu = (Msg)oin.readObject();
-
                 OutputStream out = s.getOutputStream();
-                ObjectOutputStream oo s= new ObjectOutputStream(out);
+                ObjectOutputStream oos= new ObjectOutputStream(out);
 
                while (true) {
             	   System.out.println(menu.menu);
@@ -58,7 +57,6 @@ public class DocClient
 
                        oos.writeObject(a);
                        oos.flush();
-
                        Msg res =(Msg)oin.readObject();
                        System.out.println(res.response);
                    } else if (m.equals("s")) {
