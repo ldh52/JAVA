@@ -35,16 +35,16 @@ public class ControlStatement {
 		
 		int[] arr1 = sortIntArr(10);
 		selectionSort(arr1);
-		System.out.println("정렬 후" + Arrays.toString(sortIntArr(10))); //정렬 후 상태
+		System.out.println("정렬 후" + Arrays.toString(sortIntArr(10))); // 정렬 후 상태
 		Scanner kbd = new Scanner(System.in);
 		System.out.print("아이디: ");
 		String input = kbd.nextLine().trim();
-		String[] arr2 = input.split("\\s+"); //정규표현식을 받는다
+		String[] arr2 = input.split("\\s+"); // 정규표현식을 받는다
 		String result = login2(arr2[0], arr2[1]) ? "로그인 성공":"로그인 실패";
 		System.out.println(result);
 	}
 	
-	//메소드(Method : 코드의 집합에 이름을 붙인 것)
+	// 메소드(Method : 코드의 집합에 이름을 붙인 것)
 	private static void hello() { //function:기능,함수 static이 붙은건 클래스메서드
 		System.out.println("Hello");
 	}
@@ -75,7 +75,7 @@ public class ControlStatement {
 				System.out.println("입력 종료");
 				break;
 			}
-				//문자열로 표현된 숫자를 가감스제가 가능한 숫자로 변환하려면 어떻게 해야할까
+				// 문자열로 표현된 숫자를 가감스제가 가능한 숫자로 변환하려면 어떻게 해야할까
 			int no = Integer.parseInt(sNo);
 			
 			num[cnt] = no;
@@ -100,7 +100,7 @@ public class ControlStatement {
 		{
 			System.out.print("목록(s), 추가(a), 수정(u), 삭제(d), 검색(f), 종료(x): ");
 			String menu = kbd.nextLine();
-			if(menu.equals("s")) { //목록보기
+			if(menu.equals("s")) { // 목록보기
 				System.out.println("\t***회원목록***");
 				for(int i =0; i < cnt; i++) 
 				{
@@ -121,10 +121,9 @@ public class ControlStatement {
 				name[cnt] = nm;
 				phone[cnt] = ph;
 				cnt++;
-				
 			} else if(menu.equals("u")) {
-				//번호, 새 전화번호
-				//번호로 검색해서 그 회원의 전화번호를 새로 갱신한다.
+				// 번호, 새 전화번호
+				// 번호로 검색해서 그 회원의 전화번호를 새로 갱신한다.
 				System.out.print("회원번호: ");
 				int no = kbd.nextInt();
 				kbd.nextLine(); //이거 없으면 menu 2번나옴
@@ -164,7 +163,7 @@ public class ControlStatement {
                 if (!deleted) System.out.println("일치하는 회원번호가 없습니다.");
 				
 			} else if(menu.equals("f")) {
-				//번호, 전화번호를 검색
+				// 번호, 전화번호를 검색
 				System.out.print("회원번호로 검색(n), 전화번호로 검색(p):");
 				String fc = kbd.nextLine();
 				int idx = -1;
@@ -199,14 +198,14 @@ public class ControlStatement {
 			}else if(menu.equals("x")) {
 				break;
 			}
-		} //end of main loop
+		} // end of main loop
 		System.out.println("프로그램 종료");
 	} //end of method()
 	
 	private static void arrayTest()
 	{
-		int[] nums; //배열변수 선언
-		//new는 동적인 메모리할당 연산자
+		int[] nums; // 배열변수 선언
+		// new는 동적인 메모리할당 연산자
 		nums = new int[5]; // 정수 5개 공간 확보(할당)
 		nums[0] = 3;
 		nums[1] = 4;
@@ -219,20 +218,16 @@ public class ControlStatement {
 		}
 	}
 	
-	//continue : while, for, do while 문장에서 흐름을 다시 루프의 시작으로 돌린다
-	//break : while, for, switch 문장에서 반복을 종료한다
+	// continue : while, for, do while 문장에서 흐름을 다시 루프의 시작으로 돌린다
+	// break : while, for, switch 문장에서 반복을 종료한다
 	// 무작위 정수 10개를 출력, 모두 홀수여야 한다	
 	private static void forluf()
 	{
 		Random rd = new Random();
 		int n = 0;
-		
-		for(int cnt=0 ; cnt<10;)
-		{
+		for(int cnt=0 ; cnt<10;) {
 			n = rd.nextInt(20)+1;
-				
-			if( n % 2 == 1 ) 
-			{
+			if(n % 2 == 1) {
 				System.out.printf("%d. %d %n", ++cnt, n);
 			}
 		}
@@ -240,14 +235,13 @@ public class ControlStatement {
 		
 	private static void forTest()
 	{
-		for(int i=10, delta=-1; i<=10; i+=delta)
-		{
+		for(int i=10, delta=-1; i<=10; i+=delta){
 			System.out.printf(i + " ");	
-			if( i==1 ) delta = 1;
+			if(i==1) delta = 1;
 		}
 	}
 	
-	//break가 없으면 if문으로 바꾸기 힘듬
+	// break가 없으면 if문으로 바꾸기 힘듬
 	private static void switchTest()
 	{
 		Calendar cal = Calendar.getInstance();
@@ -259,7 +253,7 @@ public class ControlStatement {
 		int m = cal.get(Calendar.MINUTE);
 		int s = cal.get(Calendar.SECOND);
 		
-//			int wd = 3;
+		// int wd = 3;
 		String sWeekDay = null;
 		switch(wd)
 		{
@@ -310,7 +304,7 @@ public class ControlStatement {
 	{
 		int v = 0;
 		String s = null;
-		s = ""; //요걸로
+		s = ""; // 요걸로
 		String str = "";
 		boolean result = str.equals(""); //NPE
 		System.out.println(result);
@@ -328,7 +322,7 @@ public class ControlStatement {
 		int s = cal.get(Calendar.SECOND);
 		String sWeekDay = null;
 
-		if		(wd == 1) sWeekDay = "일"; 
+		if	(wd == 1) sWeekDay = "일"; 
 		else if (wd == 2) sWeekDay = "월";
 		else if (wd == 3) sWeekDay = "화";
 		else if (wd == 4) sWeekDay = "수";
@@ -342,28 +336,24 @@ public class ControlStatement {
 	private static void ifTest() 
 	{
 		int i = 0;
-		if(i==1)
-		{
+		if(i==1) {
 			System.out.println("참인 경우");			
 		}		
-		else if(i==2)
-		{
+		else if(i==2) {
 			System.out.println("거짓인 경우");						
 		}
-		else
-		{
+		else {
 			System.out.println("거짓인 경우");									
 		}
 		System.out.println("메소드 종료");			
 	}
 	
-	//while 문장을 사용하여 무작위 수 중에서 짝수가 5개 출력하기
+	// while 문장을 사용하여 무작위 수 중에서 짝수가 5개 출력하기
 	private static void getEven5() 
 	{
 		Random rd = new Random();
 		int cnt = 0;
-		while (cnt<5) 
-		{
+		while (cnt<5) {
 			int rn = rd.nextInt(20)+1;
 			String s = rn%2==0 ? rn+" ":"";
 			System.out.print(s);
@@ -376,15 +366,12 @@ public class ControlStatement {
 		int i = 1;
 		int delta = 1;
 		int cnt = 0;
-		
-		while (i>0) 
-		{
+		while (i>0) {
 			System.out.printf("%d %n", i );
 			cnt++;
 			delta = cnt >=  5 ? -1 : 1;
 			i += delta;
 		}
-		
 	}
 	
 	private static void getSumRange() 
@@ -392,11 +379,9 @@ public class ControlStatement {
 		int i = new Random().nextInt(10);
 		int start = i;
 		int sum = 0;
-		
-		while (i++<=10) 
-		{
+		while (i++<=10) {
 			sum += i-1;
-//			i = i + 1;
+			// i = i + 1;
 		}
 		System.out.printf("%d ~ 10까지 합산= %d %n", start, sum );
 	}
@@ -413,28 +398,22 @@ public class ControlStatement {
 		}
 	}
 
-	
-	
-	
-	
-	
-	private static void add() { //입력 파라미터가 없고 리턴 데이터도 없다
+	private static void add() { // 입력 파라미터가 없고 리턴 데이터도 없다
 		int a = 5;
 		int b = 4;
-		
 		System.out.printf("%d + %d = %d %n", a, b, a+b);
 	}
 	
-	private static void add(int a, int b) { //입력 파라미터가 있지만 리턴 데이터가 없다
+	private static void add(int a, int b) { // 입력 파라미터가 있지만 리턴 데이터가 없다
 		System.out.printf("%d + %d = %d %n", a, b, a+b);
 	}
 	
-	private static int add2(int a, int b) { //입력 파라미터가 있지만 리턴 데이터가 없다
+	private static int add2(int a, int b) { // 입력 파라미터가 있지만 리턴 데이터가 없다
 		return a+b;
 	}
 	
-	//greet 메소드에 회원의 이름을 전달하면 그 이름에 "Hello" 가 추가되어 리턴되고 리턴된 문자열을 화면에 표시하는 기능을 작성해보세요
-	private static String greet(String name) { //입력 파라미터가 있지만 리턴 데이터가 없다
+	// greet 메소드에 회원의 이름을 전달하면 그 이름에 "Hello" 가 추가되어 리턴되고 리턴된 문자열을 화면에 표시하는 기능을 작성해보세요
+	private static String greet(String name) { // 입력 파라미터가 있지만 리턴 데이터가 없다
 		return "Hello" + name;
 	}
 	
@@ -447,11 +426,10 @@ public class ControlStatement {
 		return  total ;
 	}
 	
-	
 	// getNums 메소드를 호출하면 무작위 정수 원소로 하는 배열이 리턴되도록 해보세요
 	// 파아미터로 전달하는 숫자만큼 배열의 원소수를 지정하여배열이 생성되도록 해보세요
 	private static int[] getNums(int cnt) { //입력 파라미터가 있지만 리턴 데이터가 없다
-//		50까지
+		// 50까지
 		Random rd = new Random();
 		int[] arr = new int[cnt];
 		for(int i =0; i<cnt; i++) {
@@ -464,20 +442,21 @@ public class ControlStatement {
 	// 선택정렬 알고리즘을 사용하여 무작위로 추출된 배열의 원소를 오름차순으로 정렬해보세요
 	private static int[] arrSort() { //입력 파라미터가 있지만 리턴 데이터가 없다
 		//swap 알고리즘
-//		int a = 5;
-//		int b = 3;
-//		int tmp = a;
-//		a = b;
-//		b = tmp; // ?
+		// int a = 5;
+		// int b = 3;
+		// int tmp = a;
+		// a = b;
+		// b = tmp; // ?
+		
 		// 무작위 정수배열 원소 10개를 준비
 		int[] arr = new int[10];
 		Random rd = new Random();
 		for(int i=0; i<arr.length; i++) {
 			arr[i] = rd.nextInt(20);
 		}
-		System.out.println("정렬 전:" + Arrays.toString(arr)); //정렬전 상태
+		System.out.println("정렬 전:" + Arrays.toString(arr)); // 정렬전 상태
 		
-		//선택 정렬 
+		// 선택 정렬 
 		for(int i=0; i<arr.length-1; i++) { //배열의 방번호 선택
 			for(int j=i+1; j<arr.length; j++) { // 현재 선택된 값과 비교할 우측값
 				if(arr[i]>arr[j]) { // 정렬대상인지 확인
@@ -487,7 +466,7 @@ public class ControlStatement {
 				}
 			}
 		}
-		System.out.println("정렬 후" + Arrays.toString(arr)); //정렬 후 상태
+		System.out.println("정렬 후" + Arrays.toString(arr)); // 정렬 후 상태
 		return null;
 	}
 	
@@ -504,8 +483,8 @@ public class ControlStatement {
 		return selectionSort(arr);
 	}
 	
-	private static int[] selectionSort(int[] arr) { //출력 입력
-		for(int i=0; i<arr.length-1; i++) { //배열의 방번호 선택
+	private static int[] selectionSort(int[] arr) { // 출력 입력
+		for(int i=0; i<arr.length-1; i++) { // 배열의 방번호 선택
 			for(int j=i+1; j<arr.length; j++) { // 현재 선택된 값과 비교할 우측값
 				if(arr[i]>arr[j]) { // 정렬대상인지 확인
 					int tmp = arr[i];
@@ -518,9 +497,9 @@ public class ControlStatement {
 	}
 	
 	// 키보드에서 아이디, 암호를 입력 받아서 로그인하고 그 결과를
-	//로그인 성공/실패로 표시하는 기능을 작성해 보세요
-	//boolean login(String id, String pwd)
-	private static Boolean login2(String id, String pwd) { //출력 입력
+	// 로그인 성공/실패로 표시하는 기능을 작성해 보세요
+	// boolean login(String id, String pwd)
+	private static Boolean login2(String id, String pwd) { // 출력 입력
 		return id.equals("smith") && pwd.equals("1234");
 	}
 }
