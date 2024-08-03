@@ -1,7 +1,7 @@
 package thread;
 
-public class NumThread extends Thread {
-
+public class NumThread extends Thread 
+{
 	public NumThread(String name) {
 		super(name);
 	}
@@ -17,9 +17,7 @@ public class NumThread extends Thread {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
 		System.out.println("Thread Dead");
 	}
-
 }
