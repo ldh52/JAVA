@@ -6,8 +6,7 @@ public class User
 	private String pwd;
 	
 	public User() {}
-	public User(String id, String pwd)
-	{
+	public User(String id, String pwd) {
 		setId(id);
 		setPwd(pwd);
 	}
@@ -26,8 +25,7 @@ public class User
 	}
 	
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return String.format("%s\t%s", getId(), getPwd());
 	}
 	
