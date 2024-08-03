@@ -18,8 +18,8 @@ public class Hamster extends Pet
 	
 	public Hamster(String[] token) { 
 		super(Integer.parseInt(token[0]), token[1]);
-        float size = Float.parseFloat(token[2]);  
-        setSize(size);
+	        float size = Float.parseFloat(token[2]);  
+	        setSize(size);
 	}
 	
 	public Hamster(String string, int i, float f) {
