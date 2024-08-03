@@ -21,9 +21,9 @@ public class Dog extends Pet
 	public Dog(String[] token) { 
 		super(Integer.parseInt(token[0]), token[1]);
 		float weight = Float.parseFloat(token[2]);
-        float age = Float.parseFloat(token[3]);  
-        setWeight(weight);
-        setAge(age);
+	        float age = Float.parseFloat(token[3]);  
+	        setWeight(weight);
+	        setAge(age);
 	}
 	
 	public Dog(String string, int i, float f, float g) {
