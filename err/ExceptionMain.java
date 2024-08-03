@@ -28,26 +28,26 @@ public class ExceptionMain
 		// 비정상 종료
 		
 		error01();
-//		error02();
-//		error03();
-//		
-//		try {
-//			error04();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		
-//		try {
-//			error05();
-//		} catch (PasswordException e) {
-//			System.err.println(e.getMessage());
-//		}
+		error02();
+		error03();
 		
-//		try {
-//			error06();
-//		} catch (UserLoginException e) {
-//			System.err.println(e.getMessage());
-//		}
+		try {
+			error04();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			error05();
+		} catch (PasswordException e) {
+			System.err.println(e.getMessage());
+		}
+		
+		try {
+			error06();
+		} catch (UserLoginException e) {
+			System.err.println(e.getMessage());
+		}
 	}
 	
 	private static void error01()
@@ -77,8 +77,7 @@ public class ExceptionMain
 	private static void error02() 
 	{
 		boolean go =true;
-		while(go)
-		{
+		while(go) {
 			System.out.print("정수 a b: ");
 			try {
 				int a = kbd.nextInt();
@@ -146,7 +145,6 @@ public class ExceptionMain
 			System.out.println(line);
 		}
 		br.close();
-
 	}
 	
 	private static void error05() throws PasswordException 
@@ -179,19 +177,16 @@ public class ExceptionMain
 			BufferedReader br = new BufferedReader(new FileReader(fpath));
 			String line = null; 
 			
-			while((line=br.readLine()) != null)
-			{
+			while((line=br.readLine()) != null) {
 				String[] fdata = line.split("\\:");
-				if(fdata[0].equals(id) && fdata[1].endsWith(pwd))
-				{
+				if(fdata[0].equals(id) && fdata[1].endsWith(pwd)) {
 					System.out.println("로그인 성공");
 					ok =true;
 					break;
 				}
 			}
 			br.close();	
-		} catch(Exception e)
-		{
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		
