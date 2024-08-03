@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class UserWorkThread extends  Thread
+public class UserWorkThread extends Thread
 {
     private  Socket s;
 
@@ -27,8 +27,8 @@ public class UserWorkThread extends  Thread
     @Override
     public void run() {
         try {
-            OutputStream out =s.getOutputStream();
-            ObjectOutputStream oos= new ObjectOutputStream(out);
+            OutputStream out = s.getOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(out);
 
             Msg msg = new Msg();
             msg.menu = "업로드(a) 목록(s) 검색(f) 수정(u) 삭제(d) 종료(x)";
@@ -123,7 +123,6 @@ public class UserWorkThread extends  Thread
                     oos.writeObject(n);
                     oos.flush();
                 }
-
             }
         } catch (Exception e) {
             e.printStackTrace();
