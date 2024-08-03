@@ -5,8 +5,8 @@ import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
 
-public class ControlStatement {
-
+public class ControlStatement
+{
 	public static void main(String[] args) 
 	{
 		hello();
