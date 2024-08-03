@@ -26,13 +26,11 @@ public class ListCRUD
 		// 기능구현은 현재 클래스에 클래스 메소드 선언으로 해결
 		boolean go = true;
 
-		do 
-		{
-			switch(showMenu()) 
-			{
-				case "x": go = false;	break;
+		do {
+			switch(showMenu()) {
+				case "x": go = false;		break;
 				case "a": add();		break;
-				case "s": showList();	break;
+				case "s": showList();		break;
 				case "f": find();		break;
 				case "u": update();		break;
 				case "d": delete();		break;
@@ -112,7 +110,7 @@ public class ListCRUD
 				System.out.println("\t\t* 번호로 검색한 결과 *");
 				System.out.println(found);
 			}
-		}else if(sub.equals("n")) {
+		} else if(sub.equals("n")) {
 			System.out.print("검색할 이름:");
 			String ename = kbd.nextLine().trim();
 			List<Employee> found = searchByName(ename);
@@ -136,7 +134,7 @@ public class ListCRUD
 			list.get(list.indexOf(emp)).setSal(sal);
 			list.get(list.indexOf(emp)).setDeptno(deptno);
 			System.out.println("\t사원정보 수정 성공");
-		}else {
+		} else {
 			System.err.println("\t사원정보 수정 실패");
 		}
 	}
@@ -144,7 +142,7 @@ public class ListCRUD
 	private static void delete()
 	{
 		System.out.print("삭제할 사번:");
-		int empno = kbd.nextInt();			kbd.nextLine();
+		int empno = kbd.nextInt();		kbd.nextLine();
 		Employee key = new Employee(empno);
 		boolean deleted = false;
 		if(list.contains(key)) {
@@ -154,4 +152,3 @@ public class ListCRUD
 		else System.err.println("삭제 실패");
 	}
 }
-
