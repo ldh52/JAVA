@@ -22,7 +22,7 @@ public class EmpDAO
 			conn = DriverManager.getConnection(
 	                "jdbc:oracle:thin:@localhost:1521:xe", "SCOTT", "TIGER");
 			return conn;
-		}catch(Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		return null;
@@ -35,8 +35,7 @@ public class EmpDAO
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM emp2");
 			List<EmpVO> list = new ArrayList<>();
-			while(rs.next())
-			{
+			while(rs.next()) {
 				int empno = rs.getInt("EMPNO");
 				String ename = rs.getString("ENAME");
 				java.sql.Date hiredate = rs.getDate("HIREDATE");
@@ -50,9 +49,9 @@ public class EmpDAO
 				list.add(emp);
 			}
 			return list;
-		}catch(SQLException sqle) {
+		} catch(SQLException sqle) {
 			sqle.printStackTrace();
-		}finally {
+		} finally {
 			closeAll();
 		}
 		return null;
@@ -65,15 +64,15 @@ public class EmpDAO
 			String sql = "UPDATE emp2 SET sal="+emp.getSal()+" WHERE empno=" + emp.getEmpno();
 			int rows = stmt.executeUpdate(sql);
 			return rows>0;
-		}catch(SQLException sqle) {
+		} catch(SQLException sqle) {
 			sqle.printStackTrace();
 		}
 		return false;
 	}
 	
-	//사원정보 추가(add()), 사번으로 검색(findByEmpno()), 
-	//부서번호로 검색(findByDeptno()), 직무명칭으로 검색(findByJob()),
-	//사번으로 삭제(deleteByEmpno())
+	// 사원정보 추가(add()), 사번으로 검색(findByEmpno()), 
+	// 부서번호로 검색(findByDeptno()), 직무명칭으로 검색(findByJob()),
+	// 사번으로 삭제(deleteByEmpno())
 	public boolean add(EmpVO emp) 
 	{
 		conn = getConn();
@@ -87,7 +86,7 @@ public class EmpDAO
 						     emp.getJob() + "')";
 			int rows = stmt.executeUpdate(sql);
 			return rows>0;
-		}catch(SQLException sqle) {
+		} catch(SQLException sqle) {
 			sqle.printStackTrace();
 		}
 		return false;
@@ -101,8 +100,7 @@ public class EmpDAO
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			List<EmpVO> list = new ArrayList<>();
-			while(rs.next())
-			{
+			while(rs.next()) {
 				int empno = rs.getInt("EMPNO");
 				String ename = rs.getString("ENAME");
 				java.sql.Date hiredate = rs.getDate("HIREDATE");
@@ -118,13 +116,13 @@ public class EmpDAO
 				list.add(emp);
 			}
 			return list;
-		}catch(SQLException sqle) {
+		} catch(SQLException sqle) {
 			sqle.printStackTrace();
 		}
 		return null;
 	}
 	
-	//삭제, 사번으로 삭제
+	// 삭제, 사번으로 삭제
 	public boolean delete(int empno) {
 		conn = getConn();
 		try {
@@ -132,7 +130,7 @@ public class EmpDAO
 			String sql = "DELETE FROM emp2 WHERE empno=" + empno;
 			int rows = stmt.executeUpdate(sql);
 			return rows>0;
-		}catch(SQLException sqle) {
+		} catch(SQLException sqle) {
 			sqle.printStackTrace();
 		}
 		return false;
@@ -143,7 +141,7 @@ public class EmpDAO
 			if(rs!=null) rs.close();
 			if(stmt!=null) stmt.close();
 			if(conn!=null) conn.close();
-		}catch(Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
