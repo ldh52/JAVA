@@ -3,7 +3,7 @@ package jdbc;
 import java.text.SimpleDateFormat;
 
 public class EmpVO 
-{//empno,ename,sal,deptno,job,hiredate,mgr,comm
+{ // empno,ename,sal,deptno,job,hiredate,mgr,comm
 	private int empno;
 	private String ename;
 	private int sal;
