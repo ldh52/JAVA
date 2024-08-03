@@ -75,7 +75,7 @@ public class DataTypes
 	
 	private static void scannerIntCal()
 	{
-		//키보드로부터 동적인 데이터를 받아오는 예
+		// 키보드로부터 동적인 데이터를 받아오는 예
 	        Scanner kbd = new Scanner(System.in);
 	        System.out.print("수1: ");
 	        int a = kbd.nextInt();
