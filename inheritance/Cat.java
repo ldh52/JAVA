@@ -4,7 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Cat extends Pet {
+public class Cat extends Pet 
+{
 	String pattern; 
 	float age;
 	
@@ -23,14 +24,13 @@ public class Cat extends Pet {
 	
 	public Cat(String[] token) { 
 		super(Integer.parseInt(token[0]), token[1]);
-        String pattern = token[2];
-        float age = Float.parseFloat(token[3]);  
-        setPattern(pattern);
-        setAge(age);
+	        String pattern = token[2];
+	        float age = Float.parseFloat(token[3]);  
+	        setPattern(pattern);
+	        setAge(age);
 	}
 	
 	public Cat(String string, int i, float f, String string2) {
-		
 	}
 
 	public String getPattern() {
@@ -45,6 +45,4 @@ public class Cat extends Pet {
 	public void setAge(float age) {
 		this.age = age;
 	}
-	
-	
 }
