@@ -11,7 +11,7 @@ public class Client
 	public static void main(String[] args) 
 	{
 		try {
-			Socket s = new Socket("220.67.113.131", 1234); //접속 요청
+			Socket s = new Socket("220.67.113.131", 1234); // 접속 요청
 			
 			InputStream in = s.getInputStream();
 			ObjectInputStream oin = new ObjectInputStream(in);
@@ -21,20 +21,18 @@ public class Client
 			String uid = kbd.next();
 			String pwd = kbd.nextLine();
 			
-			//출력스트림, uid, pwd를 ChatMsg에 저장하여 서버로 전송한다
+			// 출력스트림, uid, pwd를 ChatMsg에 저장하여 서버로 전송한다
 			ChatMsg cm2 = new ChatMsg(true, uid, pwd);
 			OutputStream out = s.getOutputStream();
 			ObjectOutputStream oos = new ObjectOutputStream(out);
 			oos.writeObject(cm2);
 			oos.flush();
 			
-			//로그인 결과 수신
+			// 로그인 결과 수신
 			cm = (ChatMsg)oin.readObject();
 			
 			if(cm.msg.equals("로그인 성공")) {
-				
 				new ClientNetInputThread(oin).start();
-				
 				while(true) {   // 채팅 시작
 					System.out.println("귓속말(s) 공개메시지(p) 종료(x):");
 					String m = kbd.nextLine().trim();
@@ -42,7 +40,7 @@ public class Client
 					if(m.equalsIgnoreCase("x")) {
 						System.out.println("채팅을 종료합니다");
 						break;
-					}
+					} 
 					else if(m.equals("s")) {
 						System.out.println("수신자:");
 						String rec = kbd.nextLine();
@@ -54,22 +52,19 @@ public class Client
 						String fname = kbd.nextLine();
 						
 						cm = new ChatMsg();
-						
 						if(fname!=null && !fname.equals("")) {
 							byte[] fdata = new FileIO().load(fname);
 							if(fdata!=null) {
 								cm.fname = fname;
 								cm.fdata = fdata;
-							}else {
+							} else {
 								System.out.println("첨부파일 없이 메시지만 전송합니다");
 							}
 						}
-						
 						cm.uid = uid;  			// 송신
 						cm.isSecret = true;		// 비밀 메시지
 						cm.to = rec;			// 수신
 						cm.msg = msg;			// 대화
-						
 						oos.writeObject(cm);
 						oos.flush();
 					}
@@ -82,7 +77,7 @@ public class Client
 						cm.msg = msg;
 						oos.writeObject(cm);
 						oos.flush();
-					}else if(m.equals("y")) { // 파일 다운로드 승락(y)인 경우
+					} else if(m.equals("y")) { // 파일 다운로드 승락(y)인 경우
 						String fname = ClientNetInputThread.chatMsg.fname;
 						byte[] fdata = ClientNetInputThread.chatMsg.fdata;
 						boolean saved = new FileIO().download(fname, fdata);
@@ -90,7 +85,7 @@ public class Client
 						else System.err.println("다운로드 실패");
 					}
 				}
-			}else {
+			} else {
 				System.err.println("로그인 실패");
 			}
 		} catch (UnknownHostException e) {
