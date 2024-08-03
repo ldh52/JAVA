@@ -25,17 +25,11 @@ public class PetMain
 	
 	public static void main(String[] args) 
 	{
-		
 		showFirstList();
-//		addPetSpecies();
-		
-
+		// addPetSpecies();
 	}
 
-	private static void addPetSpecies() 
-	{
-		// TODO Auto-generated method stub
-		
+	private static void addPetSpecies() {
 	}
 
 	private static void showFirstList() 
@@ -57,5 +51,4 @@ public class PetMain
 			System.out.println(pet.get(i));
 		}
 	}
-	
 }
