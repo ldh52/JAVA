@@ -51,7 +51,7 @@ public class ControlStatement
 	}
 	
 	// 키보드에서 회원정보를 입력받아서 배열에 저장하고 회원의 목록을 표시하는 기능
-	// 프로그램이 시작되면, 번호, 이름, 전화버호를 입력 받을 수 있는 화면이 표시되고
+	// 프로그램이 시작되면, 번호, 이름, 전화번호를 입력 받을 수 있는 화면이 표시되고
 	// 다수의 회원정보를 입력할 수 있어야 하고 이용자가 아무런 값도 입력하지 않고 엔터를 누르면
 	// 입력을 종료하고 지금까지 입력된 회원목록을 화면에 표시해보세요.
 	// 배열의 원소수는 처음에 10개로 확보한다.
@@ -76,7 +76,7 @@ public class ControlStatement
 				System.out.println("입력 종료");
 				break;
 			}
-			// 문자열로 표현된 숫자를 가감스제가 가능한 숫자로 변환하려면 어떻게 해야할까
+			// 문자열로 표현된 숫자를 가감승제가 가능한 숫자로 변환하려면 어떻게 해야할까
 			int no = Integer.parseInt(sNo);
 			
 			num[cnt] = no;
@@ -101,6 +101,7 @@ public class ControlStatement
 		{
 			System.out.print("목록(s), 추가(a), 수정(u), 삭제(d), 검색(f), 종료(x): ");
 			String menu = kbd.nextLine();
+			
 			if(menu.equals("s")) { // 목록보기
 				System.out.println("\t***회원목록***");
 				for(int i =0; i < cnt; i++) {
@@ -126,7 +127,7 @@ public class ControlStatement
 				// 번호로 검색해서 그 회원의 전화번호를 새로 갱신한다.
 				System.out.print("회원번호: ");
 				int no = kbd.nextInt();
-				kbd.nextLine(); //이거 없으면 menu 2번나옴
+				kbd.nextLine(); // 이거 없으면 menu 2번나옴
 				System.out.print("새 전화번호: ");
 				String newphone = kbd.nextLine();
 				boolean updated = false;
@@ -147,8 +148,7 @@ public class ControlStatement
 		                boolean deleted = false;
 		                for (int i = 0; i < cnt; i++) {
 		                    if (num[i]==no) {
-		                        for (int j = i; j < cnt - 1; j++) {
-		                        	//덮어쓰기 기능
+		                        for (int j = i; j < cnt - 1; j++) { // 덮어쓰기 기능
 		                            num[j] = num[j + 1];
 		                            name[j] = name[j + 1];
 		                            phone[j] = phone[j + 1];
@@ -160,9 +160,7 @@ public class ControlStatement
 		                    }
 		                }
 		                if (!deleted) System.out.println("일치하는 회원번호가 없습니다.");
-				
-			} else if(menu.equals("f")) {
-				// 번호, 전화번호를 검색
+			} else if(menu.equals("f")) { // 번호, 전화번호를 검색
 				System.out.print("회원번호로 검색(n), 전화번호로 검색(p):");
 				String fc = kbd.nextLine();
 				int idx = -1;
@@ -193,7 +191,6 @@ public class ControlStatement
 				} else {					
 					System.out.println("\t\t검색실패");					
 				}
-				
 			} else if(menu.equals("x")) {
 				break;
 			}
@@ -226,7 +223,7 @@ public class ControlStatement
 		for(int cnt=0 ; cnt<10;) {
 			n = rd.nextInt(20)+1;
 			if(n % 2 == 1) {
-				System.out.printf("%d. %d %n", ++cnt, n);
+				System.out.printf("%d, %d %n", ++cnt, n);
 			}
 		}
 	}
@@ -254,13 +251,13 @@ public class ControlStatement
 		// int wd = 3;
 		String sWeekDay = null;
 		switch(wd) {
-		case 1: sWeekDay = "일"; break;
-		case 2: sWeekDay = "월"; break; 
-		case 3: sWeekDay = "화"; break;
-		case 4: sWeekDay = "수"; break;
-		case 5: sWeekDay = "목"; break;
-		case 6: sWeekDay = "금"; break;
-		case 7: sWeekDay = "토"; break;
+		case 1: sWeekDay = "일";	break;
+		case 2: sWeekDay = "월"; 	break; 
+		case 3: sWeekDay = "화"; 	break;
+		case 4: sWeekDay = "수"; 	break;
+		case 5: sWeekDay = "목"; 	break;
+		case 6: sWeekDay = "금"; 	break;
+		case 7: sWeekDay = "토"; 	break;
 		default:
 		}
 		System.out.printf("%d년-%d월-%d일 %s요일 %d:%d:%d%n", y, M, d, sWeekDay, h, m, s);	
@@ -352,7 +349,7 @@ public class ControlStatement
 			int rn = rd.nextInt(20)+1;
 			String s = rn%2==0 ? rn+" ":"";
 			System.out.print(s);
-			cnt += !s.equals("")?1:0;
+			cnt += !s.equals("")? 1 : 0;
 		}
 	}
 	
@@ -412,7 +409,7 @@ public class ControlStatement
 	}
 	
 	// sum이라는 이름의 메소드를 정의하고 배열을 받아서 그 배열의 합을 리턴하는 기능
-	private static int sum(int[] arr) { //입력 파라미터가 있지만 리턴 데이터가 없다
+	private static int sum(int[] arr) { // 입력 파라미터가 있지만 리턴 데이터가 없다
 		int total = 0;
 		for (int i=0; i<arr.length; i++) {
 			total += arr[i];
@@ -421,12 +418,12 @@ public class ControlStatement
 	}
 	
 	// getNums 메소드를 호출하면 무작위 정수 원소로 하는 배열이 리턴되도록 해보세요
-	// 파아미터로 전달하는 숫자만큼 배열의 원소수를 지정하여배열이 생성되도록 해보세요
-	private static int[] getNums(int cnt) { //입력 파라미터가 있지만 리턴 데이터가 없다
+	// 파라미터로 전달하는 숫자만큼 배열의 원소수를 지정하여 배열이 생성되도록 해보세요
+	private static int[] getNums(int cnt) { // 입력 파라미터가 있지만 리턴 데이터가 없다
 		// 50까지
 		Random rd = new Random();
 		int[] arr = new int[cnt];
-		for(int i =0; i<cnt; i++) {
+		for(int i=0; i<cnt; i++) {
 			arr[i] = rd.nextInt(50)+1;
 			System.out.printf("랜덤숫자%d = %d %n", i, arr[i]);
 		}
@@ -435,7 +432,7 @@ public class ControlStatement
 	
 	// 선택정렬 알고리즘을 사용하여 무작위로 추출된 배열의 원소를 오름차순으로 정렬해보세요
 	private static int[] arrSort() { //입력 파라미터가 있지만 리턴 데이터가 없다
-		//swap 알고리즘
+		// swap 알고리즘
 		// int a = 5;
 		// int b = 3;
 		// int tmp = a;
@@ -451,7 +448,7 @@ public class ControlStatement
 		System.out.println("정렬 전:" + Arrays.toString(arr)); // 정렬전 상태
 		
 		// 선택 정렬 
-		for(int i=0; i<arr.length-1; i++) { //배열의 방번호 선택
+		for(int i=0; i<arr.length-1; i++) { // 배열의 방번호 선택
 			for(int j=i+1; j<arr.length; j++) { // 현재 선택된 값과 비교할 우측값
 				if(arr[i]>arr[j]) { // 정렬대상인지 확인
 					int tmp = arr[i];
