@@ -7,14 +7,14 @@ public class HelloWorld
 {
 	public static void main(String[] args) 
 	{
-//		System.out.println("Hello");
-//		incDecTest();
-//		printGugu();
-//		printGugu7();
-//		inputDanPrint();
-//		notEquals();
-//		logicalOpTest();
-//		logicallogin();
+		System.out.println("Hello");
+		incDecTest();
+		printGugu();
+		printGugu7();
+		inputDanPrint();
+		notEquals();
+		logicalOpTest();
+		logicallogin();
 		bitShifOp();
 	}
 	
@@ -75,19 +75,19 @@ public class HelloWorld
 	{
 		Scanner kbd = new Scanner(System.in);
 		System.out.print("수를 입력하세요: ");
-        int n = kbd.nextInt();
-        String msg = String.format("%d는(은) %s입니다", n, n % 2 == 0 ? "짝수" : "홀수");
-        System.out.println(msg);
+	        int n = kbd.nextInt();
+	        String msg = String.format("%d는(은) %s입니다", n, n % 2 == 0 ? "짝수" : "홀수");
+	        System.out.println(msg);
 	}
 	
 	private static void logicalAnd()
 	{
 		Boolean result = true && true;
-		result = false && true; //단축연산자
+		result = false && true; 	// 단축연산자
 		result = true || true;
-		result = true || false; //단축논리 or 연산자
+		result = true || false; 	// 단축논리 or 연산자
 		result = false || true;
-		result = false & true; //비단축연산자
+		result = false & true; 		// 비단축연산자
 		result = true | false;
 	}
 	
