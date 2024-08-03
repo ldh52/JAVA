@@ -19,8 +19,7 @@ public class FileIO
 {
 	static String serPath = "C:/test/data/pet.ser";
 
-	public static boolean addObject(PetVO pet) 
-	{
+	public static boolean addObject(PetVO pet) {
 		List<PetVO> list = getList();
 		list.add(pet);
 		return overwrite(list);
@@ -58,21 +57,17 @@ public class FileIO
 		return false;
 	}
 
-	
-	public static PetVO findByNo(int no) 
-	{
+	public static PetVO findByNo(int no) {
 		List<PetVO> list = getList();
 		PetVO key = new PetVO(no);
-		if(list.contains(key)) 
-		{
+		if(list.contains(key)) {
 			PetVO pet = list.get(list.indexOf(key));
 			return pet;
 		}
 		return null;
 	}
 
-	public static PetVO findBySpecies(String species) 
-	{
+	public static PetVO findBySpecies(String species) {
 		List<PetVO> list = getList();
 		for(int i=0;i<list.size();i++) {
 			PetVO b = list.get(i);
@@ -82,18 +77,6 @@ public class FileIO
 		}
 		return null;
 	}
-	
-//	public static PetVO findBySpecies(String species) 
-//	{
-//		List<PetVO> list = getList();
-//		PetVO key = new PetVO(species);
-//		if(list.contains(key)) 
-//		{
-//			PetVO pet = list.get(list.indexOf(key));
-//			return pet;
-//		}
-//		return null;
-//	}
 
 	public static boolean update(PetVO pet) {
 		List<PetVO> list = getList();
