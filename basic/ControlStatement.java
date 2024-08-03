@@ -75,7 +75,7 @@ public class ControlStatement {
 				System.out.println("입력 종료");
 				break;
 			}
-				// 문자열로 표현된 숫자를 가감스제가 가능한 숫자로 변환하려면 어떻게 해야할까
+			// 문자열로 표현된 숫자를 가감스제가 가능한 숫자로 변환하려면 어떻게 해야할까
 			int no = Integer.parseInt(sNo);
 			
 			num[cnt] = no;
@@ -102,8 +102,7 @@ public class ControlStatement {
 			String menu = kbd.nextLine();
 			if(menu.equals("s")) { // 목록보기
 				System.out.println("\t***회원목록***");
-				for(int i =0; i < cnt; i++) 
-				{
+				for(int i =0; i < cnt; i++) {
 					System.out.printf("%d\t%s\t%s%n", num[i], name[i], phone[i]);
 				}	
 			} else if(menu.equals("a")) {
@@ -131,36 +130,35 @@ public class ControlStatement {
 				String newphone = kbd.nextLine();
 				boolean updated = false;
 				for (int i = 0; i < cnt; i++) {
-				if (num[i]==no) {
-					phone[i] = newphone;
-					System.out.println("전화번호 변경 성공.");
-					updated = true;
-					break;
+					if (num[i]==no) {
+						phone[i] = newphone;
+						System.out.println("전화번호 변경 성공.");
+						updated = true;
+						break;
 					}
 				}
 				if(!updated)System.out.println("전화번호 변경 실패");
-				
 			} else if(menu.equals("d")) {
 				// 삭제대상 회원번호를 입력받아서 우측 값으로 덮어쓰기, cnt--, 성공/실패 메시지 띄워주기
 				System.out.print("삭제대상 회원번호: ");
-                int no = kbd.nextInt();
-                kbd.nextLine();
-                boolean deleted = false;
-                for (int i = 0; i < cnt; i++) {
-                    if (num[i]==no) {
-                        for (int j = i; j < cnt - 1; j++) {
-                        	//덮어쓰기 기능
-                            num[j] = num[j + 1];
-                            name[j] = name[j + 1];
-                            phone[j] = phone[j + 1];
-                        }
-                        cnt--;
-                        deleted = true;
-                        System.out.println("삭제가 완료되었습니다.");
-                        break;
-                    }
-                }
-                if (!deleted) System.out.println("일치하는 회원번호가 없습니다.");
+		                int no = kbd.nextInt();
+		                kbd.nextLine();
+		                boolean deleted = false;
+		                for (int i = 0; i < cnt; i++) {
+		                    if (num[i]==no) {
+		                        for (int j = i; j < cnt - 1; j++) {
+		                        	//덮어쓰기 기능
+		                            num[j] = num[j + 1];
+		                            name[j] = name[j + 1];
+		                            phone[j] = phone[j + 1];
+		                        }
+		                        cnt--;
+		                        deleted = true;
+		                        System.out.println("삭제가 완료되었습니다.");
+		                        break;
+		                    }
+		                }
+		                if (!deleted) System.out.println("일치하는 회원번호가 없습니다.");
 				
 			} else if(menu.equals("f")) {
 				// 번호, 전화번호를 검색
@@ -172,9 +170,9 @@ public class ControlStatement {
 					int no = kbd.nextInt();
 					kbd.nextLine();
 					for (int i = 0; i < cnt; i++) {
-					if (num[i]==no) {
-						idx = i;
-						break;
+						if (num[i]==no) {
+							idx = i;
+							break;
 						}
 					}
 				}
@@ -182,20 +180,20 @@ public class ControlStatement {
 					System.out.print("전화번호로 찾기: ");
 					String ph = kbd.nextLine();
 					for (int i = 0; i < cnt; i++) {
-					if (phone[i].equals(ph)) {
-						idx = i;
-						break;
+						if (phone[i].equals(ph)) {
+							idx = i;
+							break;
 						}
 					}
 				}
 				if(idx!=-1) {
 					System.out.println("\t\t검색된 회원정보");
 					System.out.printf("%d\t%s\t%s %n", num[idx], name[idx], phone[idx]);				
-				}else {					
+				} else {					
 					System.out.println("\t\t검색실패");					
 				}
 				
-			}else if(menu.equals("x")) {
+			} else if(menu.equals("x")) {
 				break;
 			}
 		} // end of main loop
@@ -212,8 +210,7 @@ public class ControlStatement {
 		nums[2] = 5;
 		nums[3] = 6;
 		nums[4] = 7;
-		for(int i = 0; i < nums.length; i++)
-		{
+		for(int i = 0; i < nums.length; i++) {
 			System.out.printf("%d", nums[i]);
 		}
 	}
@@ -255,8 +252,7 @@ public class ControlStatement {
 		
 		// int wd = 3;
 		String sWeekDay = null;
-		switch(wd)
-		{
+		switch(wd) {
 		case 1: sWeekDay = "일"; break;
 		case 2: sWeekDay = "월"; break; 
 		case 3: sWeekDay = "화"; break;
@@ -275,8 +271,7 @@ public class ControlStatement {
 		int cnt = 0;
 		int count = 4;
 		boolean go = true;
-		while(go)
-		{
+		while(go) {
 			System.out.print("아이디: ");
 			String id = kbd.next();
 			
@@ -300,8 +295,7 @@ public class ControlStatement {
 		}
 	}
 	
-	private static void variableInit()
-	{
+	private static void variableInit() {
 		int v = 0;
 		String s = null;
 		s = ""; // 요걸로
@@ -391,8 +385,7 @@ public class ControlStatement {
 		int dan = new Random().nextInt(8)+2;
 		boolean go = true;
 		int i = 0;
-		while (go) 
-		{
+		while (go) {
 			System.out.printf("%d * %d = %d %n", dan, ++i, dan*i );
 			go = i==9 ? false:true;
 		}
