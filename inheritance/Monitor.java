@@ -2,8 +2,8 @@ package inheritance;
 
 import java.util.Date;
 
-public class Monitor extends Item {
-	
+public class Monitor extends Item 
+{
 	float size;
 
 	public Monitor() {}
