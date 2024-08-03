@@ -117,5 +117,4 @@ public class PDSVO implements Serializable
 	public void setKey(String key) {
 		this.key = key;
 	}
-	
 }
