@@ -13,8 +13,7 @@ public class Employee
 	private java.util.Date hiredate;
 	
 	public Employee() {}
-	public Employee(int empno)
-	{
+	public Employee(int empno) {
 		setEmpno(empno);
 	}
 	public Employee(int empno, String ename, int sal, int deptno, String sHiredate)
