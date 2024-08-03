@@ -10,12 +10,10 @@ public class Server
 	{
 		try {
 			ServerSocket ss = new ServerSocket(1234);
-			while(true)
-			{
+			while(true) {
 				System.out.println("서버 대기 중...");
 				Socket s = ss.accept();
 				System.out.println("클라이언트 접속");
-				
 				new LoginThread(s).start();
 			}
 		} catch (IOException e) {
