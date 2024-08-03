@@ -41,23 +41,6 @@ public class inheritanceMain
 		// 상속성, 다형성, 은닉성
 		// 다형성 : 오버라이드, 오버로드
 		// 은닉성 ;
-		
-		/* Pet Store
-		 * Cat, Dog, Snake, Hamster : pet
-		 * Cat(String pattern, float age, int price, String species)
-		 * Dog(float weight, float age, int price, String species)
-		 * Snake(String pattern, float size, int price, String species)
-		 * Hamster(float size, int price, String species)
-		 * 
-		 * Pet 클래스 정의해보세요
-		 * Cat, Dog, Snake, Hamster 파생하여 생성
-		 * 자식 클래스의 인스턴스를 생성하고 한개의 Collection에 저장
-		 * Collection의 내용을 화면에 표시해보세요.
-		 * 
-		 * Pet 관리 시스템
-		 * 추가(a) : cat(c), Dog(d), snake(s), Hamster(h)
-		 * 목록(s) : 무늬 나이 가격 품종
-		 */
 	}
 	
 	private static void add() 
