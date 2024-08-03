@@ -16,7 +16,8 @@ public class ChatThread extends Thread
 	
 	static Map<String, ObjectOutputStream> user = new HashMap<>();
 	
-	public ChatThread(String uid, Socket s, ObjectInputStream oin, ObjectOutputStream oos) {
+	public ChatThread(String uid, Socket s, ObjectInputStream oin, ObjectOutputStream oos) 
+	{
 		this.userid = uid;
 		this.s = s;
 		this.oin = oin;
@@ -42,7 +43,7 @@ public class ChatThread extends Thread
 					user.get(cm.to).flush();
 					continue;
 				}
-				//접속한 모든 이용자에게 메시지를 전달한다
+				// 접속한 모든 이용자에게 메시지를 전달한다
 				Set<String> idSet = ChatThread.user.keySet();
 				Iterator <String> idIter = idSet.iterator();
 				ObjectOutputStream userOut = null;
@@ -57,7 +58,7 @@ public class ChatThread extends Thread
 		} catch (Exception e) {
 			InetAddress ia = s.getInetAddress();
 			System.err.println(ia + " 이용자 퇴장");
-			//user 맵에서 퇴장한 이용자의 정보를 삭제한다
+			// user 맵에서 퇴장한 이용자의 정보를 삭제한다
 			user.remove(userid);
 		}
 		System.err.print("ChatThread dead");
