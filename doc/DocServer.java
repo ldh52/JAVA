@@ -4,34 +4,27 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class DocServer {
-
-    public  static  void main(String[] args){
-
-        try {
-            ServerSocket ss =new ServerSocket(1234);
-
-            while (true)
-            {
-                System.out.println("서버 대기중");
-                Socket s= ss.accept();
-                System.out.println("클라이언트 접속");
-                new UserWorkThread(s).start();
-
-            }
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
+public class DocServer 
+{
+	public  static  void main(String[] args)
+	{
+		try {
+		    ServerSocket ss =new ServerSocket(1234);
+		    while (true) {
+			System.out.println("서버 대기중");
+			Socket s= ss.accept();
+			System.out.println("클라이언트 접속");
+			new UserWorkThread(s).start();
+		    }
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+	}
 }
 
-//DocClient, DocServer
+// DocClient, DocServer
 	/* 1. DocServer 
-	 * 	  + "서버 대기중..."
+	 *    + "서버 대기중..."
 	 *    + 무한 대기(accept())
 	 *    + "클라이언트 접속됨"
 	 *    + UserWorkThread.start();
@@ -49,10 +42,10 @@ public class DocServer {
 	 *    + List<FileInfo> 구조로 파일에 저장(직렬화)
 	 *    + 파일명 : list_fileinfo.ser
 	 * 5. if(cm.upload) {
-	 * 		 //파일 수신/서버시스템에 저장
-	 * 	  }else if(cm.list){
+	 * 		 // 파일 수신/서버시스템에 저장
+	 * 	  } else if(cm.list){
 	 * 		 // list_fileinfo.ser을 로드허요 fileList 변수에 할당
-	 * 	  }else if(cm.find){
+	 * 	  } else if(cm.find){
 	 * 		 // 클라이언트가 검색하려는 경우
 	 *    }
 	 * 6. 서버측 쓰레드 (UserWorkThread) 에서 메뉴를 클라이언트에게 보여주기
@@ -61,7 +54,7 @@ public class DocServer {
 	 *    + oos.flush();
 	 * 7. 이용자가 파일 업로드하는 경우
 	 *    String m = kbd.nextLine().trim();
-	 *    if(m.eqluals("a")) { //파일 업로드
+	 *    if(m.eqluals("a")) { // 파일 업로드
 	 *       파일명 : sample.jpg
 	 *       설명   : 홍길동의 증명사진
 	 *       작성자 : 홍길동
