@@ -2,8 +2,8 @@ package thread;
 
 import java.util.Date;
 
-public class DataThread extends Thread {
-
+public class DataThread extends Thread 
+{
 	public DataThread(String name) {
 		super(name);
 	}
@@ -23,5 +23,4 @@ public class DataThread extends Thread {
 		}
 		System.out.println("Thread Dead");
 	}
-
 }
