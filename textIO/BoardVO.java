@@ -15,8 +15,7 @@ public class BoardVO
 	
 	public BoardVO() {}
 	
-	public BoardVO(int no) 
-	{
+	public BoardVO(int no) {
 		setNo(no);
 	}
 	
@@ -37,12 +36,10 @@ public class BoardVO
 	}
 	
 	@Override
-	public String toString() 
-	{
+	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String sdate = sdf.format(regDate);
-		String s = String.format("%d\t%-22s\t%s\t%s\t%d", 
-									no,title,author,sdate, hits);
+		String s = String.format("%d\t%-22s\t%s\t%s\t%d", no,title,author,sdate, hits);
 		return s;
 	}
 
