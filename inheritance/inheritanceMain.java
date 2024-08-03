@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
-public class inheritanceMain {
-
+public class inheritanceMain 
+{
 	static Scanner kbd = new Scanner(System.in);
 	static List<Pet> animal = new ArrayList<>();
 	static String menu = "추가(a) 목록(s): ";
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		// 상속(Inheritance), 구현(implements)
 		// MyClass extends Thread { }
 		// MyClass implements Runnable { }
@@ -21,23 +21,22 @@ public class inheritanceMain {
 		 * A extends B ( A는 B이다(o), B는 A이다(x))
 		 * OOP 3대특징(Inheritance, Polymorphism, Encapsulation)
 		 */
-//		inheritanceTest01();
-//		inheritanceTest02();
-//		inheritanceTest03();
+		inheritanceTest01();
+		inheritanceTest02();
+		inheritanceTest03();
 		inheritanceTest04();
-//		inheritanceTest05();
+		inheritanceTest05();
 		
-//		boolean go = true;
-//		while(go) {
-//			String m = ShowMenu();
-//			switch (m) {
-//			case "x": go = false; break; 
-//			case "a": add(); break; 
-//			case "s": list(); break; 			
-//			}
-//		
-//		}
-//		System.out.println("프로그램 종료");
+		boolean go = true;
+		while(go) {
+			String m = ShowMenu();
+			switch (m) {
+			case "x": go = false; break; 
+			case "a": add(); break; 
+			case "s": list(); break; 			
+			}
+		}
+		System.out.println("프로그램 종료");
 		
 		// 상속성, 다형성, 은닉성
 		// 다형성 : 오버라이드, 오버로드
@@ -58,55 +57,54 @@ public class inheritanceMain {
 		 * Pet 관리 시스템
 		 * 추가(a) : cat(c), Dog(d), snake(s), Hamster(h)
 		 * 목록(s) : 무늬 나이 가격 품종
-		 * 			무늬 나이 가격 품종
 		 */
 	}
 	
-	private static void add() {
+	private static void add() 
+	{
 		System.out.println("cat(c), Dog(d), snake(s), Hamster(h): ");
 		String af = kbd.nextLine().trim();
 		
 		while (true) {
-		if("c".equals(af)) {
-			System.out.print("가격 품종 무늬 나이: ");
-			String input = kbd.nextLine();
-            String[] token = input.split("\\s+");
-            
-            Cat c = new Cat(token);
-            animal.add(c);
-            System.out.println("\t\t 고양이 정보 추가 성공");
-            break; 
-		}
-		if("d".equals(af)) {
-			System.out.print("가격 품종 무게 나이: ");
-			String input = kbd.nextLine();
-            String[] token = input.split("\\s+");
-            
-            Dog d = new Dog(token);
-            animal.add(d);
-            System.out.println("\t\t 강아지 정보 추가 성공");
-            break; 
-		}
-		if("s".equals(af)) {
-			System.out.print("가격 품종 무늬 사이즈: ");
-			String input = kbd.nextLine();
-            String[] token = input.split("\\s+");
-            
-            Snake s = new Snake(token);
-            animal.add(s);
-            System.out.println("\t\t 뱀 정보 추가 성공");
-            break; 
-		}
-		if("h".equals(af)) {
-			System.out.print("가격 품종 사이즈: ");
-			String input = kbd.nextLine();
-            String[] token = input.split("\\s+");
-            
-            Hamster h = new Hamster(token);
-            animal.add(h);
-            System.out.println("\t\t 햄스터 정보 추가 성공");
-            break; 
-		}
+			if("c".equals(af)) {
+				System.out.print("가격 품종 무늬 나이: ");
+				String input = kbd.nextLine();
+	            		String[] token = input.split("\\s+");
+
+				Cat c = new Cat(token);
+				animal.add(c);
+				System.out.println("\t\t 고양이 정보 추가 성공");
+				break; 
+			}
+			if("d".equals(af)) {
+				System.out.print("가격 품종 무게 나이: ");
+				String input = kbd.nextLine();
+				
+				String[] token = input.split("\\s+");
+				Dog d = new Dog(token);
+				animal.add(d);
+				System.out.println("\t\t 강아지 정보 추가 성공");
+				break; 
+			}
+			if("s".equals(af)) {
+				System.out.print("가격 품종 무늬 사이즈: ");
+				String input = kbd.nextLine();
+				String[] token = input.split("\\s+");
+
+				Snake s = new Snake(token);
+				animal.add(s);
+				System.out.println("\t\t 뱀 정보 추가 성공");
+				break;
+			}
+			if("h".equals(af)) {
+				System.out.print("가격 품종 사이즈: ");
+				String input = kbd.nextLine();
+				String[] token = input.split("\\s+");
+				Hamster h = new Hamster(token);
+				animal.add(h);
+				System.out.println("\t\t 햄스터 정보 추가 성공");
+				break; 
+			}
 		}
 	}
 
@@ -115,7 +113,6 @@ public class inheritanceMain {
 		for(int i=0; i<animal.size(); i++) {
 			System.out.println(animal.get(i));
 		}
-		
 	}
 
 	private static String ShowMenu() {
@@ -125,23 +122,22 @@ public class inheritanceMain {
 		return m;
 	}
 	
-//	private static void inheritanceTest05() {
-//		List<Pet> animal = new ArrayList<>();
-//		System.out.println("가격     품종     무늬     무게     사이즈   나이");
-//		Cat cat = new Cat(10000,"빨간종", "검정줄무늬", 2.0F);
-//		Dog dog = new Dog(20000,"검은종", 2.8F, 2.0F);
-//		Snake snake = new Snake(30000,"푸른종", "가시무늬", 1.1F);
-//		Hamster hamster = new Hamster(1000,"잡종", 0.7F);
-//		animal.add(cat);
-//		animal.add(dog);
-//		animal.add(snake);
-//		animal.add(hamster);
-//		
-//		for(int i=0; i<animal.size(); i++) {
-//			System.out.println(animal.get(i));
-//		}
-//		
-//	}
+	private static void inheritanceTest05() {
+		List<Pet> animal = new ArrayList<>();
+		System.out.println("가격     품종     무늬     무게     사이즈   나이");
+		Cat cat = new Cat(10000,"빨간종", "검정줄무늬", 2.0F);
+		Dog dog = new Dog(20000,"검은종", 2.8F, 2.0F);
+		Snake snake = new Snake(30000,"푸른종", "가시무늬", 1.1F);
+		Hamster hamster = new Hamster(1000,"잡종", 0.7F);
+		animal.add(cat);
+		animal.add(dog);
+		animal.add(snake);
+		animal.add(hamster);
+		
+		for(int i=0; i<animal.size(); i++) {
+			System.out.println(animal.get(i));
+		}
+	}
 
 	private static void inheritanceTest04() {
 		// 이용자가 마우스, 모니터 한꺼번에 구입한 경우
@@ -153,19 +149,18 @@ public class inheritanceMain {
 		cart.add(mouse);   //Item 형으로 형변환 발생(Up Casting) : 부모클래스에 선언된 변수/메소드만 사용가능
 		cart.add(monitor); 
 		
-//		mouse.wireless
-//		monitor.size
+		// mouse.wireless
+		// monitor.size
 		
 		for(Item item : cart) { //개선된 for루프
 			if(item instanceof Mouse ) {
 				Mouse ms = (Mouse) item;
 				System.out.printf("%s \t %s %n", ms.name, ms.wireless);
-			}else if(item instanceof Monitor) {
+			} else if(item instanceof Monitor) {
 				Monitor mt = (Monitor) item;
 				System.out.printf("%s \t %s %n", mt.name, mt.size);
 			}
 		}
-		
 		for(int i=0; i<cart.size(); i++) {
 			System.out.println(cart.get(i));
 		}
@@ -187,8 +182,6 @@ public class inheritanceMain {
 		item.setMade("한국 Digital");
 		item.setpDate("2020-11-20");
 		item.setPrice(52000);
-		 
 		System.out.println(item);
 	}
-
 }
