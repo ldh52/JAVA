@@ -46,7 +46,7 @@ public class ControlStatement
 	}
 	
 	// 메소드(Method : 코드의 집합에 이름을 붙인 것)
-	private static void hello() { //function:기능,함수 static이 붙은건 클래스메서드
+	private static void hello() { // function: 기능, 함수 static이 붙은건 클래스메서드
 		System.out.println("Hello");
 	}
 	
