@@ -7,8 +7,8 @@ import java.util.Date;
 
 import javax.xml.crypto.Data;
 
-public class FileInfo implements Serializable {
-
+public class FileInfo implements Serializable 
+{
     int number ;
     String fileName;
     byte[] fileData;
@@ -16,7 +16,8 @@ public class FileInfo implements Serializable {
     String content;
     String writeDate;
 
-    public FileInfo(int number, String fileName, byte[] fileData, String who, String content, String writeDate) {
+    public FileInfo(int number, String fileName, byte[] fileData, String who, String content, String writeDate) 
+    {
     	this.number = number;
         this.fileName = fileName;
         this.fileData = fileData;
@@ -26,7 +27,8 @@ public class FileInfo implements Serializable {
     }
 
     @Override
-    public String toString() {
+    public String toString() 
+    {
         return String.format("%d\t파일명:%s\t파일크기:%d[byte]\t작성자:%s\t내용:%s\t날짜:%s",
         		number,
                 fileName,
