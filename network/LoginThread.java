@@ -9,8 +9,7 @@ public class LoginThread extends Thread
 	private ObjectInputStream oin;
 	private ObjectOutputStream oos;
 	
-	public LoginThread(Socket s)
-	{
+	public LoginThread(Socket s) {
 		this.s = s;
 	}
 	
@@ -30,10 +29,10 @@ public class LoginThread extends Thread
 			ChatMsg cm2 = (ChatMsg)this.oin.readObject();
 			System.out.printf("%s / %s %n", cm2.uid, cm2.pwd);
 			
-			if(cm2.uid.length()>3 && cm2.pwd.length()>3){    // 이용자 인증
+			if(cm2.uid.length()>3 && cm2.pwd.length()>3) {    // 이용자 인증
 				ChatThread.user.put(cm2.uid, oos);
 				new ChatThread(cm2.uid, this.s, this.oin, this.oos).start();  // 채팅 시작
-			}else {
+			} else {
 				ChatMsg cm3 = new ChatMsg("서버","클라이언트", "로그인 실패");
 				oos.writeObject(cm3);
 				oos.flush();
@@ -41,7 +40,6 @@ public class LoginThread extends Thread
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		System.err.println("LoginThread dead");
 	}
 }
