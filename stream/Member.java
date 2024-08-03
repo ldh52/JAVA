@@ -8,12 +8,10 @@ public class Member
 	private String email;
 	
 	public Member() {}
-	public Member(int no)
-	{
+	public Member(int no) {
 		this.no = no;
 	}
-	public Member(int no, String name, String phone, String email)
-	{
+	public Member(int no, String name, String phone, String email) {
 		setNo(no);
 		setName(name);
 		setPhone(phone);
@@ -24,8 +22,7 @@ public class Member
 	 * 파일에서 읽어온 회원 문자열에 포함된 각 필드 구분자(|)를 사용하여 문자열을 나누고 인스턴스 변수를 초기화한다
 	 * @param line 각 필드의 구분자(|)를 포함한 회원정보 문자열
 	 */
-	public Member(String line)
-	{
+	public Member(String line) {
 		String[] info = line.split("\\|");
 		setNo(Integer.parseInt(info[0]));
 		setName(info[1]);
