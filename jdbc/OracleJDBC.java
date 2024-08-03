@@ -14,7 +14,6 @@ public class OracleJDBC
 	
 	public static void main(String[] args) 
 	{
-		
 		boolean go = true;
 		while(go) {
 			switch(showMenu()) {
@@ -47,7 +46,8 @@ public class OracleJDBC
 		return menu;
 	}
 	
-	static void add() {
+	static void add() 
+	{
 		System.out.println("사번:");
 		int empno = kbd.nextInt();      kbd.nextLine();
 		System.out.println("이름:");
@@ -81,7 +81,8 @@ public class OracleJDBC
 		else System.err.println("추가 실패");
 	}
 	
-	private static void page() {
+	private static void page() 
+	{
 		System.out.print("페이지 번호:");
 		int page = kbd.nextInt();     kbd.nextLine();
 		
@@ -98,14 +99,16 @@ public class OracleJDBC
 		}
 	}
 	
-	private static void find() {
+	private static void find() 
+	{
 		System.out.print("검색대상 사번:");
 		int empno = kbd.nextInt();     kbd.nextLine();
 		EmpVO emp = dao.findByEmpno(empno);
 		System.out.println(emp==null ? "검색실패":emp.toString());
 	}
 	
-	private static void update() {
+	private static void update() 
+	{
 		System.out.print("사번 새급여액:");
 		int empno = kbd.nextInt();
 		int newSal = kbd.nextInt();       kbd.nextLine();
@@ -119,7 +122,8 @@ public class OracleJDBC
 		else System.err.println("수정 실패");
 	}
 	
-	private static void delete() {
+	private static void delete() 
+	{
 		System.out.print("삭제대상 사번:");
 		int empno = kbd.nextInt();       kbd.nextLine();
 
@@ -128,7 +132,8 @@ public class OracleJDBC
 		else System.err.println("삭제 실패");
 	}
 	
-	private static void join() {
+	private static void join() 
+	{
 		System.out.print("부서번호:");
 		int deptno = kbd.nextInt();       kbd.nextLine();
 		List<Map<String, String>> list = dao.getJoinResult(deptno);
