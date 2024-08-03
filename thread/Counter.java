@@ -32,7 +32,6 @@ public class Counter {
 				this.notify();
 				this.wait();
 			} catch (InterruptedException ie) {
-				// TODO Auto-generated catch block
 				ie.printStackTrace();
 			}
 		}
