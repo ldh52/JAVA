@@ -9,10 +9,10 @@ public class DocServer
 	public  static  void main(String[] args)
 	{
 		try {
-		    ServerSocket ss =new ServerSocket(1234);
+		    ServerSocket ss = new ServerSocket(1234);
 		    while (true) {
 			System.out.println("서버 대기중");
-			Socket s= ss.accept();
+			Socket  s= ss.accept();
 			System.out.println("클라이언트 접속");
 			new UserWorkThread(s).start();
 		    }
@@ -44,11 +44,11 @@ public class DocServer
 	 * 5. if(cm.upload) {
 	 * 		 // 파일 수신/서버시스템에 저장
 	 * 	  } else if(cm.list){
-	 * 		 // list_fileinfo.ser을 로드허요 fileList 변수에 할당
+	 * 		 // list_fileinfo.ser을 로드하여 fileList 변수에 할당
 	 * 	  } else if(cm.find){
 	 * 		 // 클라이언트가 검색하려는 경우
 	 *    }
-	 * 6. 서버측 쓰레드 (UserWorkThread) 에서 메뉴를 클라이언트에게 보여주기
+	 * 6. 서버측 쓰레드(UserWorkThread)에서 메뉴를 클라이언트에게 보여주기
 	 *    + cm.menu = "업로드(a), 목록(s), 검색(f), 수정(u), 삭제(d), 종료(x):";
 	 *    + oos.writeObject(cm);
 	 *    + oos.flush();
@@ -87,7 +87,7 @@ public class DocServer
 	 *   + List<FileInfo>의 참조를 사용하여 새로 추가된 파일의 정보를 리스트에 저장한다
 	 *     - list.add(fi);
 	 *   + List<fileInfo>가 직렬화되어 저장되는 파일의 이름은 list_fileinfo.ser으로 한다
-	 *   + 내용이 변경된 list르 ㄹ다시 파일에 직렬화라여 저장한다
+	 *   + 내용이 변경된 list를 다시 파일에 직렬화하여 저장한다
 	 *     - FileIO fio = new FileIO();
 	 *     - fio.serialize(list);
 	 *   + 클라이언트에서 업로드 성공 메시지를 출력한다
