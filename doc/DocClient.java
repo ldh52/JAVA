@@ -46,7 +46,7 @@ public class DocClient
                            if (fdata != null) {
                                a.fileName = fileName;
                                a.fileData = fdata;
-                           }else {
+                           } else {
                                System.err.println("파일이 없습니다.");
                            }
                        }
