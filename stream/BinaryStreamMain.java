@@ -22,11 +22,11 @@ public class BinaryStreamMain
 		 */
 
 		binaryTest01();
-//		binaryTest02();
-//		binaryTest03();
-//		binaryTest04();
-//		binaryTest05();
-//		conversionTest01();
+		binaryTest02();
+		binaryTest03();
+		binaryTest04();
+		binaryTest05();
+		conversionTest01();
 	}
 	
 	// 이미지 파일의 정보를 byte로 읽어 int로 표시하기 : FileInputStream
@@ -89,9 +89,7 @@ public class BinaryStreamMain
 		try {
 			FileInputStream fin = new FileInputStream(imgPath);
 			FileOutputStream fout = new FileOutputStream(imgDest);
-			
 			byte[] buf = new byte[256];
-			
 			while(true) {
 				int cnt = fin.read(buf);
 				if(cnt==-1) break;
@@ -120,7 +118,6 @@ public class BinaryStreamMain
 			ByteArrayOutputStream bout = new ByteArrayOutputStream();
 			
 			byte[] buf = new byte[256];
-			
 			while(true) {
 				int cnt = fin.read(buf);
 				if(cnt==-1) break;
@@ -144,9 +141,9 @@ public class BinaryStreamMain
 	{
 		// 키보드에서 문자열을 받아서 파일에 저장할 때 문자 스트림이 아닌 바이트 스트림을 사용한다
 		try {
-			//PrintWriter pw = new PrintWriter(new FileWriter("c:/test/data/conv.txt"));
+			// PrintWriter pw = new PrintWriter(new FileWriter("c:/test/data/conv.txt"));
 			PrintWriter pw = new PrintWriter(new FileOutputStream("c:/test/data/conv.txt"));
-			/*Creates a new PrintWriter, without automatic line flushing, from anexisting OutputStream. 
+			/ *Creates a new PrintWriter, without automatic line flushing, from anexisting OutputStream. 
 			 * This convenience constructor creates thenecessary intermediate OutputStreamWriter
 			 */
 		} catch (IOException e) {
