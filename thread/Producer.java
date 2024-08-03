@@ -1,7 +1,7 @@
 package thread;
 
-public class Producer extends Thread {
-
+public class Producer extends Thread 
+{
 	private Counter counter;
 	
 	public Producer(Counter counter) {
@@ -17,10 +17,8 @@ public class Producer extends Thread {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
-
 }
