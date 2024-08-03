@@ -3,12 +3,11 @@ package inheritance;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Pet {
-	
+public class Pet 
+{	
 	int price;
 	String species;
-	
-	
+
 	public Pet() {}
 	
 	public Pet(int price,String species) {
@@ -33,7 +32,5 @@ public class Pet {
 	}
 	public void setSpecies(String species) {
 		this.species = species;
-	}
-	
-	
+	}	
 }
