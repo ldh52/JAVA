@@ -26,39 +26,32 @@ public class UserWorkThread extends  Thread
 
     @Override
     public void run() {
-
         try {
             OutputStream out =s.getOutputStream();
             ObjectOutputStream oos= new ObjectOutputStream(out);
 
-                Msg msg = new Msg();
-                msg.menu = "업로드(a) 목록(s) 검색(f) 수정(u) 삭제(d) 종료(x)";
-                oos.writeObject(msg);
-                oos.flush();
+            Msg msg = new Msg();
+            msg.menu = "업로드(a) 목록(s) 검색(f) 수정(u) 삭제(d) 종료(x)";
+            oos.writeObject(msg);
+            oos.flush();
 
-                InputStream in = s.getInputStream();
-                ObjectInputStream oin = new ObjectInputStream(in);
+            InputStream in = s.getInputStream();
+            ObjectInputStream oin = new ObjectInputStream(in);
 
-            while (true)
-            {
+            while (true) {
                 Msg clientMsg = (Msg) oin.readObject();
                 // 클라이언트의 메뉴 선택에 따른 처리
 
-                if (clientMsg.upload)
-                {
-                    if (clientMsg.fileData.length > 0)
-                    {
+                if (clientMsg.upload) {
+                    if (clientMsg.fileData.length > 0) {
                         boolean saved = new FileIO().download(clientMsg.fileName, clientMsg.fileData);
-                        if (saved)
-                        {
+                        if (saved) {
                             Msg n = new Msg();
                             n.response = "파일 저장 성공";
                             oos.writeObject(n);
                             oos.flush();
-
                         }
                     }
-                    
                 }
                 
                 if (clientMsg.saveFiles) {
@@ -134,11 +127,6 @@ public class UserWorkThread extends  Thread
             }
         } catch (Exception e) {
             e.printStackTrace();
-
         }
-
-
     }
-
 }
-
