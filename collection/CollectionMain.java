@@ -2,15 +2,16 @@ package collection;
 
 import java.util.*;
 
-public class CollectionMain {
-
-	public static void main(String[] args) {
-		//Set, map
+public class CollectionMain 
+{
+	public static void main(String[] args) 
+	{
+		// Set, map
 		/* List : 유순, 중복
 		 * Set : 무순, 중복불허
 		 * Map : key, value 쌍으로 저장하는 자료구조
 		 */
-		/*
+
 		Set<String> set = new HashSet<>();
 		set.add("Smith");
 		set.add("James");
@@ -40,13 +41,13 @@ public class CollectionMain {
 		// 무작위 정수(1~20)를 중복되지 않게 10개를 추출하고자 한다
 		Random rd = new Random();
 		while (iSet.size() < 10) {  
-            iSet.add(rd.nextInt(20)+1);
+              		iSet.add(rd.nextInt(20)+1);
 		}
 		List<Integer> iList = new ArrayList<Integer>(iSet);
 		Collections.sort(iList);//정렬해줌
 		System.out.println(Arrays.toString(iList.toArray()));
 			
-		//중복되지 않도록 Employee 오브젝트를 저장하려고 한다.
+		// 중복되지 않도록 Employee 오브젝트를 저장하려고 한다.
 		//Employee 오브젝트 2개를 생성할 때 사번을 동일하게 설정하여 Set에 저장해보세요
 		Set<Employee> empSet = new HashSet<>();
 		
@@ -56,15 +57,13 @@ public class CollectionMain {
 		empSet.add(emp1);
 		empSet.add(emp2);
 		
-//		List<Employee> empList = new ArrayList<Employee>(empSet);
+		// List<Employee> empList = new ArrayList<Employee>(empSet);
 		System.out.println("원소의 갯수:" + empSet.size()); //1
-		*/
-		
 		mapTest();
-		
 	}
 	
-	private static void mapTest() {
+	private static void mapTest() 
+	{
 		// map: key, value가 연결되어 쌍으로 저장되는 자료구조
 		// key를 해싱하여 value가 저장되는 위치를 계산한다
 		
@@ -78,5 +77,4 @@ public class CollectionMain {
 		String phone = map.get("blake");
 		System.out.println("blake의 전화:" + phone);
 	}
-
 }
