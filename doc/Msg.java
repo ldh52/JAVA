@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Msg implements Serializable {
-
+public class Msg implements Serializable 
+{
     String menu ;    
     boolean deleteFiles;
     boolean updateFiles;
