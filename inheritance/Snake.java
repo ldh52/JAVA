@@ -1,6 +1,7 @@
 package inheritance;
 
-public class Snake extends Pet {
+public class Snake extends Pet 
+{
 	String pattern;
 	float size;
 	
@@ -40,7 +41,5 @@ public class Snake extends Pet {
 	}
 	public void setSize(float size) {
 		this.size = size;
-	}
-	
-	
+	}	
 }
