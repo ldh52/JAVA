@@ -23,13 +23,14 @@ public class EmpDAO2
 			conn = DriverManager.getConnection(
 	                "jdbc:oracle:thin:@localhost:1521:xe", "SCOTT", "TIGER");
 			return conn;
-		}catch(Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	public PageItem getPage(int page, int ipp) {
+	public PageItem getPage(int page, int ipp) 
+	{
 		String sql = "SELECT * FROM "
 			+ "( "
 			+ "    SELECT t2.*, TRUNC((RN-1)/?+1) AS page FROM "
@@ -86,22 +87,20 @@ public class EmpDAO2
 			}
 			pageItems.setList(list);
 			return pageItems;
-		}catch(SQLException sqle) {
+		} catch(SQLException sqle) {
 			sqle.printStackTrace();
 		}
 		return null;
 	}
 	
-	
-	public List<EmpVO> getList() //empno,ename,sal,deptno,job,hiredate,mgr,comm
+	public List<EmpVO> getList() // empno,ename,sal,deptno,job,hiredate,mgr,comm
 	{
 		conn = getConn();
 		try {
 			pstmt = conn.prepareStatement("SELECT * FROM emp2");
 			rs = pstmt.executeQuery();
 			List<EmpVO> list = new ArrayList<>();
-			while(rs.next())
-			{
+			while(rs.next()) {
 				int empno = rs.getInt("EMPNO");
 				String ename = rs.getString("ENAME");
 				java.sql.Date hiredate = rs.getDate("HIREDATE");
@@ -115,15 +114,16 @@ public class EmpDAO2
 				list.add(emp);
 			}
 			return list;
-		}catch(SQLException sqle) {
+		} catch(SQLException sqle) {
 			sqle.printStackTrace();
-		}finally {
+		} finally {
 			closeAll();
 		}
 		return null;
 	}
 	
-	public boolean updateSal(EmpVO emp) {
+	public boolean updateSal(EmpVO emp) 
+	{
 		conn = getConn();
 		try {
 			String sql = "UPDATE emp2 SET sal=? WHERE empno=?";
@@ -132,7 +132,7 @@ public class EmpDAO2
 			pstmt.setInt(2, emp.getEmpno());
 			int rows = pstmt.executeUpdate();
 			return rows>0;
-		}catch(SQLException sqle) {
+		} catch(SQLException sqle) {
 			sqle.printStackTrace();
 		}
 		return false;
@@ -154,7 +154,7 @@ public class EmpDAO2
 			
 			int rows = pstmt.executeUpdate();
 			return rows>0;
-		}catch(SQLException sqle) {
+		} catch(SQLException sqle) {
 			sqle.printStackTrace();
 		}
 		return false;
@@ -170,8 +170,7 @@ public class EmpDAO2
 			
 			rs = pstmt.executeQuery();
 			List<EmpVO> list = new ArrayList<>();
-			while(rs.next())
-			{
+			while(rs.next()) {
 				int empno = rs.getInt("EMPNO");
 				String ename = rs.getString("ENAME");
 				java.sql.Date hiredate = rs.getDate("HIREDATE");
@@ -187,14 +186,15 @@ public class EmpDAO2
 				list.add(emp);
 			}
 			return list;
-		}catch(SQLException sqle) {
+		} catch(SQLException sqle) {
 			sqle.printStackTrace();
 		}
 		return null;
 	}
 	
-	//삭제, 사번으로 삭제
-	public boolean delete(int empno) {
+	// 삭제, 사번으로 삭제
+	public boolean delete(int empno) 
+	{
 		conn = getConn();
 		try {
 			String sql = "DELETE FROM emp2 WHERE empno=?";
@@ -202,14 +202,14 @@ public class EmpDAO2
 			pstmt.setInt(1, empno);
 			int rows = pstmt.executeUpdate();
 			return rows>0;
-		}catch(SQLException sqle) {
+		} catch(SQLException sqle) {
 			sqle.printStackTrace();
 		}
 		return false;
 	}
 	
-
-	public EmpVO findByEmpno(int eno) {
+	public EmpVO findByEmpno(int eno) 
+	{
 		conn = getConn();
 		try {
 			String sql = "SELECT * FROM emp2 WHERE empno=?";
@@ -217,8 +217,7 @@ public class EmpDAO2
 			pstmt.setInt(1, eno);
 			
 			rs = pstmt.executeQuery();
-			if(rs.next())
-			{
+			if(rs.next()) {
 				int empno = rs.getInt("EMPNO");
 				String ename = rs.getString("ENAME");
 				java.sql.Date hiredate = rs.getDate("HIREDATE");
@@ -241,7 +240,8 @@ public class EmpDAO2
 		return null;
 	}
 	
-	public List<Map<String,String>> getJoinResult(int deptno){
+	public List<Map<String,String>> getJoinResult(int deptno)
+	{
 		String sql = "SELECT empno, ename, e.deptno, dname, grade \"호봉\"\r\n"
 					+ "FROM emp e JOIN dept d ON e.deptno=d.deptno\r\n"
 					+ "JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal\r\n"
@@ -269,20 +269,20 @@ public class EmpDAO2
 				list.add(map);
 			}
 			return list;
-		}catch(SQLException sqle) {
+		} catch(SQLException sqle) {
 			sqle.printStackTrace();
 		}
 		return null;
 	}
 	
-	private void closeAll() {
+	private void closeAll() 
+	{
 		try {
 			if(rs!=null) rs.close();
 			if(pstmt!=null) pstmt.close();
 			if(conn!=null) conn.close();
-		}catch(Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 }
