@@ -27,12 +27,11 @@ public class OOPMain
 		barr[1] = b2;
 		barr[2] = b3;
 		
-		for(int i=0; i<barr.length; i++)
-		{
+		for(int i=0; i<barr.length; i++) {
 			System.out.printf("%d\t %s\t %s %n", 
-								barr[i].getNum(), 
-								barr[i].getTitle(), 
-								barr[i].getAuthor());
+							barr[i].getNum(), 
+							barr[i].getTitle(), 
+							barr[i].getAuthor());
 		}
 		*/
 		
@@ -40,9 +39,9 @@ public class OOPMain
 		String msg = login(u) ? "succes" : "no";
 		System.out.println(msg);
 		
-//		 키보드에서 회원의 번호, 이름, 전화, 이메일을 입력받아서
-//		 Member 인스턴스를 생성하고 배열에 저장한 후에 이용자가 아무것도 입력하지 않고
-//		 그냥 엔터를 누르면 지금까지 입력된 회원정보를 화면에 목록으로 표시하는 기능을 작성해보세요.
+		 // 키보드에서 회원의 번호, 이름, 전화, 이메일을 입력받아서
+		 // Member 인스턴스를 생성하고 배열에 저장한 후에 이용자가 아무것도 입력하지 않고
+		 // 그냥 엔터를 누르면 지금까지 입력된 회원정보를 화면에 목록으로 표시하는 기능을 작성해보세요.
 		
 		inputMember();
 		memList();
@@ -71,15 +70,14 @@ public class OOPMain
 	}
 	*/
 	
-	private static void initMems()
-	{
+	private static void initMems() {
 		mems.add(new Member(11, "smith", "010-1234-5678", "smith@gmail.com"));
 		mems.add(new Member(12, "james", "010-5678-1234", "james@yahoo.com"));
 	}
 	
 	private static void updatePhoneByNo() 
 	{
-		//전화번호 갱신 대상 회원의 번호, 새 전화번호
+		// 전화번호 갱신 대상 회원의 번호, 새 전화번호
 		inputMember();	
 		
 		System.out.print("몇 번 회원의 정보를 바꿀까요? : ");
@@ -90,14 +88,12 @@ public class OOPMain
 		String phone = kbd.nextLine();
 		
 		Member key = new Member(no, phone);
-		if(mems.contains(key))
-		{
+		if(mems.contains(key)) {
 			int idx = mems.indexOf(key);
 			mems.get(idx).setPhone(key.getPhone());
 			System.out.println("전화번호 변경 성공");
 		}
-		else
-		{
+		else {
 			System.err.println("전화번호 변경 실패");
 		}
 		memList();
@@ -107,8 +103,7 @@ public class OOPMain
 	{
 		inputMember();
 		Member key = new Member(11, "1", "1", "1");
-		if(mems.contains(key))
-		{
+		if(mems.contains(key)) {
 			Member rem = mems.set(mems.indexOf(key), key);
 			if(rem !=null) System.out.println("수정성공");
 			else System.err.println("수정실패");
@@ -128,15 +123,14 @@ public class OOPMain
 		Member key = new Member(11);
 		boolean removed = mems.remove(key);
 		System.out.println("삭제결과: " + removed);
-		//memList();
+		// memList();
 	}
 	
 	private static void listSearch()
 	{
 		inputMember();
 		Member key = new Member(11);
-		if(mems.contains(key))
-		{
+		if(mems.contains(key)) {
 			int idx = mems.indexOf(key);
 			Member found = mems.get(idx);
 			System.out.println(found);
@@ -152,9 +146,8 @@ public class OOPMain
 		sList.add("홍길동");
 		sList.add("홍길동");
 		
-		for(int i=0; i<sList.size(); i++)
-		{
-			String v = sList.get(i);					// Read
+		for(int i=0; i<sList.size(); i++) {
+			String v = sList.get(i);		// Read
 			System.out.println(v);
 		}
 		
@@ -175,8 +168,7 @@ public class OOPMain
 	// 리스트에서 검색하여 번호가 11번인 회원정보를 화면에 표시해보세요.
 	private static void inputMember()
 	{
-		while(true)
-		{
+		while(true) {
 			System.out.print("no name phone email: ");
 			String input = kbd.nextLine().trim();
 			if(input.equals("")) break;
@@ -191,8 +183,7 @@ public class OOPMain
 	// 12 james 010-5678-1234 james@yahoo.com
 	private static void memList()
 	{
-		for(int i=0; i<mems.size(); i++)
-		{
+		for(int i=0; i<mems.size(); i++) {
 			System.out.println(mems.get(i));	// toString() 메소드의 오버라이드(Override)요구됨
 		}
 	}
@@ -207,8 +198,7 @@ public class OOPMain
 		return u;
 	}
 	
-	private static boolean login(User u)
-	{
+	private static boolean login(User u) {
 		return u.getId().equals("smith") && u.getPwd().equals("1234");
 	}
 }
@@ -222,7 +212,7 @@ class Board			// Inheritance, Polymorphism, Encapsulation
 	private String contents;
 	private Date rDate;
 	int hits;
-	//-------------------------------------------------------------------
+
 	// 개발자가 생성자를 정의하지 않으면 컴파일러는 자동으로 기본 생성자를 선언한다
 	public Board() {}
 	
@@ -234,9 +224,9 @@ class Board			// Inheritance, Polymorphism, Encapsulation
 		setTitle(title);
 		setAuthor(author);
 		// 기본생성자(Constructor)
-		//this.num = num;
-		//this.title = title;
-		//this.author = author;
+		// this.num = num;
+		// this.title = title;
+		// this.author = author;
 	}
 
 	public int getNum() {
@@ -258,8 +248,7 @@ class Board			// Inheritance, Polymorphism, Encapsulation
 		return hits;
 	}
 	public void setNum(int num) {
-		if(num<=0)
-		{
+		if(num<=0) {
 			System.err.println("num 초기화 실패(글번호는 0보다 커야합니다)");
 			return;
 		}
@@ -281,6 +270,7 @@ class Board			// Inheritance, Polymorphism, Encapsulation
 		this.hits = hits;
 	}
 }
+
 	// *****************************************************************************
 	// 키보드에서 입력된 아이디, 암호를 사용하여 user 클래스의 인스턴스를 초기화하고
 	// boolean login(User u) 메소드를 작성하여 로그인 성공여부를 확인하는 기능을 작성해보세요.
@@ -293,8 +283,7 @@ class User
 	private String pwd;
 	
 	public User() {}
-	public User(String id, String pwd)
-	{
+	public User(String id, String pwd) {
 		setId(id);
 		setPwd(pwd);
 	}
@@ -311,7 +300,8 @@ class User
 		this.pwd = pwd;
 	}
 }
-class Member extends Object		// Inheritance(상속)
+
+class Member extends Object			// Inheritance(상속)
 {
 	private int no;
 	private String name;
@@ -338,13 +328,11 @@ class Member extends Object		// Inheritance(상속)
 		setEmail(email);
 	}
 
-	public Member(int no)
-	{
+	public Member(int no) {
 		setNo(no);
 	}
 	
-	public Member(int no, String phone)
-	{
+	public Member(int no, String phone) {
 		setNo(no);
 		setPhone(phone);
 	}
@@ -391,7 +379,6 @@ class Member extends Object		// Inheritance(상속)
 }
 
 /* Collection API
- * 
  * 다수의 객체를 저장 및 관리하는 자료구조
  * List, Set, Map
  * List : 저장할 때의 순서가 유지됨, 동일 객체의 중복저장 가능 
