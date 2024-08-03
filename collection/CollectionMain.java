@@ -19,7 +19,7 @@ public class CollectionMain
 		set.add("Laura");
 		set.add("James");
 		
-		System.out.println("원소의 갯수:" + set.size()); //4
+		System.out.println("원소의 갯수:" + set.size()); // 4
 		
 		Iterator<String> it = set.iterator();
 		while(it.hasNext()) {
@@ -44,11 +44,11 @@ public class CollectionMain
               		iSet.add(rd.nextInt(20)+1);
 		}
 		List<Integer> iList = new ArrayList<Integer>(iSet);
-		Collections.sort(iList);//정렬해줌
+		Collections.sort(iList);	// 정렬해줌
 		System.out.println(Arrays.toString(iList.toArray()));
 			
 		// 중복되지 않도록 Employee 오브젝트를 저장하려고 한다.
-		//Employee 오브젝트 2개를 생성할 때 사번을 동일하게 설정하여 Set에 저장해보세요
+		// Employee 오브젝트 2개를 생성할 때 사번을 동일하게 설정하여 Set에 저장해보세요
 		Set<Employee> empSet = new HashSet<>();
 		
 		Employee emp1 = new Employee(11);
@@ -58,7 +58,7 @@ public class CollectionMain
 		empSet.add(emp2);
 		
 		// List<Employee> empList = new ArrayList<Employee>(empSet);
-		System.out.println("원소의 갯수:" + empSet.size()); //1
+		System.out.println("원소의 갯수:" + empSet.size()); // 1
 		mapTest();
 	}
 	
