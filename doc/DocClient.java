@@ -19,12 +19,12 @@ public class DocClient
                 Socket s = new Socket("localhost", 1234);
                 System.out.println("서버 접속");
 
-                InputStream in=s.getInputStream();
-                ObjectInputStream oin= new ObjectInputStream(in);
-                Msg menu =(Msg)oin.readObject();
+                InputStream in = s.getInputStream();
+                ObjectInputStream oin = new ObjectInputStream(in);
+                Msg menu = (Msg)oin.readObject();
 
-                OutputStream out =s.getOutputStream();
-                ObjectOutputStream oos= new ObjectOutputStream(out);
+                OutputStream out = s.getOutputStream();
+                ObjectOutputStream oo s= new ObjectOutputStream(out);
 
                while (true) {
             	   System.out.println(menu.menu);
