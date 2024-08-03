@@ -1,6 +1,7 @@
 package inheritance;
 
-public class Dog extends Pet {
+public class Dog extends Pet 
+{
 	float weight;
 	float age;
 	
@@ -41,6 +42,4 @@ public class Dog extends Pet {
 	public void setAge(float age) {
 		this.age = age;
 	}
-	
-	
 }
