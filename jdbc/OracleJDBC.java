@@ -1,6 +1,7 @@
 package jdbc;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -8,12 +9,12 @@ import java.util.Scanner;
 public class OracleJDBC 
 {
 	static enum MENU { ADD,PAGE,FIND,UPDATE,DELETE,JOIN,EXIT };
-
 	static Scanner kbd = new Scanner(System.in);
 	static EmpDAO2 dao = new EmpDAO2();
 	
 	public static void main(String[] args) 
 	{
+		/*
 		boolean go = true;
 		while(go) {
 			switch(showMenu()) {
@@ -25,7 +26,35 @@ public class OracleJDBC
 			case JOIN:		join();		break;
 			case EXIT: 		go=false;	break;
 			}
+		}*/
+		/*
+		EmpDAO2 dao = new EmpDAO2();
+		Map<Integer, String[]> map = dao.getEmpsByDept();
+		
+		System.out.printf("%s\t%s%n", "부서번호", "사원이름");
+		
+		for(int deptno=10;deptno<=40; deptno+=10) {
+			String[] names = map.get(deptno);
+			System.out.printf("%d\t%s%n", deptno, Arrays.toString(names));
+		}*/
+		
+		/* board, attach 테이블을 사용하여
+		 * 글번호, 제목, 첨부파일 수를 화면에 표시해보세요.
+		 * BoardDAO 클래스 생성
+		 */
+		
+		BoardDAO dao = new BoardDAO();
+		List <Map<String, String>> list = dao.getBoards();
+		System.out.printf("%s\t%s\t\t%s%n", "글번호","제목","첨부파일 수");
+		
+		for(int i=0;i<list.size();i++) {
+			Map<String, String> map = list.get(i);
+			String sBid = map.get("BID");
+			String sTitle = map.get("TITLE");
+			String sAttCnt = map.get("ATTCNT");
+			System.out.printf("%s\t%s\t\t%s%n", sBid,sTitle,sAttCnt);
 		}
+		
 		System.out.println("프로그램 종료");
 	}
 
@@ -46,8 +75,7 @@ public class OracleJDBC
 		return menu;
 	}
 	
-	static void add() 
-	{
+	static void add() {
 		System.out.println("사번:");
 		int empno = kbd.nextInt();      kbd.nextLine();
 		System.out.println("이름:");
@@ -99,16 +127,14 @@ public class OracleJDBC
 		}
 	}
 	
-	private static void find() 
-	{
+	private static void find() {
 		System.out.print("검색대상 사번:");
 		int empno = kbd.nextInt();     kbd.nextLine();
 		EmpVO emp = dao.findByEmpno(empno);
 		System.out.println(emp==null ? "검색실패":emp.toString());
 	}
 	
-	private static void update() 
-	{
+	private static void update() {
 		System.out.print("사번 새급여액:");
 		int empno = kbd.nextInt();
 		int newSal = kbd.nextInt();       kbd.nextLine();
@@ -122,8 +148,7 @@ public class OracleJDBC
 		else System.err.println("수정 실패");
 	}
 	
-	private static void delete() 
-	{
+	private static void delete() {
 		System.out.print("삭제대상 사번:");
 		int empno = kbd.nextInt();       kbd.nextLine();
 
@@ -132,8 +157,7 @@ public class OracleJDBC
 		else System.err.println("삭제 실패");
 	}
 	
-	private static void join() 
-	{
+	private static void join() {
 		System.out.print("부서번호:");
 		int deptno = kbd.nextInt();       kbd.nextLine();
 		List<Map<String, String>> list = dao.getJoinResult(deptno);
