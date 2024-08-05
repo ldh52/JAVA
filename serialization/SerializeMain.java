@@ -213,7 +213,7 @@ public class SerializeMain
 	}
 
 }
-/ /File f = new File("C:/test/sample.jpg");
+// File f = new File("C:/test/sample.jpg");
 // if(f.exists()) {
 //	boolean deleted = f.delete();
 //	if(deleted) {
