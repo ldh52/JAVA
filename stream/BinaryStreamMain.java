@@ -143,7 +143,7 @@ public class BinaryStreamMain
 		try {
 			// PrintWriter pw = new PrintWriter(new FileWriter("c:/test/data/conv.txt"));
 			PrintWriter pw = new PrintWriter(new FileOutputStream("c:/test/data/conv.txt"));
-			/ *Creates a new PrintWriter, without automatic line flushing, from anexisting OutputStream. 
+			/* Creates a new PrintWriter, without automatic line flushing, from anexisting OutputStream. 
 			 * This convenience constructor creates thenecessary intermediate OutputStreamWriter
 			 */
 		} catch (IOException e) {
