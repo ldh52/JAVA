@@ -21,8 +21,8 @@ public class OracleJDBC
 			case ADD: 		add(); 		break;
 			case PAGE:		page();		break;
 			case FIND:		find();		break;
-			case UPDATE: 	update(); 	break;
-			case DELETE: 	delete();	break;
+			case UPDATE: 		update(); 	break;
+			case DELETE: 		delete();	break;
 			case JOIN:		join();		break;
 			case EXIT: 		go=false;	break;
 			}
@@ -64,7 +64,7 @@ public class OracleJDBC
 		String m = kbd.nextLine().trim();
 		MENU menu = null;
 		switch(m) {
-		case "a": menu = MENU.ADD; 		break;
+		case "a": menu = MENU.ADD; 	break;
 		case "p": menu = MENU.PAGE; 	break;
 		case "f": menu = MENU.FIND; 	break;
 		case "j": menu = MENU.JOIN; 	break;
