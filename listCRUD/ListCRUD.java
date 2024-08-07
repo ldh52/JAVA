@@ -6,7 +6,7 @@ import java.util.*;
 
 public class ListCRUD 
 {
-	//List Collection API를 사용한 CRUD 실습
+	// List Collection API를 사용한 CRUD 실습
 	// 사원정보 관리 시스템
 	static List<Employee> list = new ArrayList<>();
 	static Scanner kbd = new Scanner(System.in);
